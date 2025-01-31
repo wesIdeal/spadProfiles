@@ -56,6 +56,58 @@
               <Option Key="TUNER_MULTIPLY_3" Value="3" />
             </Options>
           </Event>
+          	<Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV1">
+		<EventDefinitions>
+		  <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+			<Comment>NAV1: Increment Fractional Value [no carry]</Comment>
+			<EventActions>
+			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_INC" />
+			</EventActions>
+		  </EventDefinition>
+		  <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+			<Comment>NAV1: Decrement Fractional Value [no carry]</Comment>
+			<EventActions>
+			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_DEC" />
+			</EventActions>
+		  </EventDefinition>
+		  <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+			<Comment>NAV1: Increment Whole Value</Comment>
+			<EventActions>
+			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_INC" />
+			</EventActions>
+		  </EventDefinition>
+		  <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+			<Comment>NAV1: Decrement Whole Value</Comment>
+			<EventActions>
+			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_DEC" />
+			</EventActions>
+		  </EventDefinition>
+		  <EventDefinition Trigger="LEFTDISPLAY">
+			<EventActions>
+			  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:1" />
+			</EventActions>
+		  </EventDefinition>
+		  <EventDefinition Trigger="RIGHTDISPLAY">
+			<Comment>Nav 1 Standby Frequency</Comment>
+			<EventActions>
+			  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" />
+			</EventActions>
+		  </EventDefinition>
+		  <EventDefinition Trigger="ACTIVATESHORT">
+			<Comment>Nav 1: Swap Active with Standby </Comment>
+			<EventActions>
+			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_SWAP" />
+			</EventActions>
+		  </EventDefinition>
+		</EventDefinitions>
+		<Options>
+		  <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+		  <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+		  <Option Key="TUNER_MULTIPLY_1" Value="1" />
+		  <Option Key="TUNER_MULTIPLY_2" Value="2" />
+		  <Option Key="TUNER_MULTIPLY_3" Value="3" />
+		</Options>
+	  </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -78,9 +130,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="eb283963-8efa-49ce-b9b5-89feef6663eb" Version="0.2">
+  <ProfileInformation ProfileID="eb283963-8efa-49ce-b9b5-89feef6663eb" Version="0.3">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-01-31T17:54:30.8449057-05:00</LastChanged>
+    <LastChanged>2025-01-31T17:59:16.2769762-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
