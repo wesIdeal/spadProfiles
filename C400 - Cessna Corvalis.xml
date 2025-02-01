@@ -1040,27 +1040,19 @@
                     </Event>
                     <Event BoundTo="BUTTON_2">
                         <EventDefinitions>
-                            <EventDefinition Trigger="PRESSSHORT" IsFinal="true">
-                                <EventActions>
-                                    <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_NAVIGATION_PFD" Value="0" ValueOperation="ToggleBit" />
-                                </EventActions>
-                            </EventDefinition>
                             <EventDefinition Trigger="BUTTONLIGHT">
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="0" ConditionValueSource="B:AS1000_AUTOPILOT_NAVIGATION_PFD" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT NAV1 LOCK" />
                                 </EventConditions>
                                 <EventActions>
-                                    <EventActionLED />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="BUTTONLIGHT">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="B:AS1000_AUTOPILOT_NAVIGATION_PFD" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionLED>
+                                    <EventActionLED AutoOff="true">
                                         <Parameter Value="1" />
                                     </EventActionLED>
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="PRESSSHORT">
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_NAV1_HOLD" />
                                 </EventActions>
                             </EventDefinition>
                         </EventDefinitions>
@@ -1227,127 +1219,169 @@
                     </Event>
                     <Event BoundTo="E_AP_ENCODER">
                         <EventDefinitions>
-                            <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_17" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_VERTICALSPEED_UP_PFD" Value="0" ValueOperation="ToggleBit" />
-                                </EventActions>
-                                <Options>
-                                    <Option Key="ACCEL_TIMEOUT" Value="250" />
-                                    <Option Key="ACCEL_MAX" Value="10" />
-                                </Options>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_17" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_VERTICALSPEED_DOWN_PFD" Value="0" ValueOperation="ToggleBit" />
-                                </EventActions>
-                                <Options>
-                                    <Option Key="ACCEL_MAX" Value="10" />
-                                    <Option Key="ACCEL_TIMEOUT" Value="250" />
-                                </Options>
-                            </EventDefinition>
                             <EventDefinition Trigger="TUNER_CLOCKWISE">
+                                <Comment>ALT: Increment</Comment>
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_19" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER ALT MODE" />
                                 </EventConditions>
                                 <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:HEADING_BUG_INC" />
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_ALT_VAR_INC" />
                                 </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_TIMEOUT" Value="250" />
+                                </Options>
                             </EventDefinition>
                             <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+                                <Comment>ALT: Decrement</Comment>
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_19" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER ALT MODE" />
                                 </EventConditions>
                                 <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:HEADING_BUG_DEC" />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_18" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:VOR1_OBI_INC" />
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_ALT_VAR_DEC" />
                                 </EventActions>
                                 <Options>
-                                    <Option Key="ACCEL_MAX" Value="10" />
-                                </Options>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_18" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:VOR1_OBI_DEC" />
-                                </EventActions>
-                                <Options>
-                                    <Option Key="ACCEL_MAX" Value="10" />
+                                    <Option Key="ACCEL_THRESHOLD" Value="5" />
+                                    <Option Key="ACCEL_TIMEOUT" Value="1000" />
+                                    <Option Key="ACCEL_MULTIPLIER" Value="10" />
                                 </Options>
                             </EventDefinition>
                             <EventDefinition Trigger="TUNER_CLOCKWISE">
+                                <Comment>VS: Increment</Comment>
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_20" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER VS MODE" />
                                 </EventConditions>
                                 <EventActions>
                                     <EventActionControl TargetDataDefinition="SIMCONNECT:AP_VS_VAR_INC" />
                                 </EventActions>
                             </EventDefinition>
                             <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+                                <Comment>VS: Decrement</Comment>
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_20" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER VS MODE" />
                                 </EventConditions>
                                 <EventActions>
                                     <EventActionControl TargetDataDefinition="SIMCONNECT:AP_VS_VAR_DEC" />
                                 </EventActions>
                             </EventDefinition>
-                            <EventDefinition Trigger="TUNER_CLOCKWISE">
+                            <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+                                <Comment>HDG: Increment [accelerated]</Comment>
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_21" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER HDG MODE" />
                                 </EventConditions>
                                 <EventActions>
-                                    <EventActionControl TargetDataDefinition="MSFS:AP_ALT_VAR_INC100" />
+                                    <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT HEADING LOCK DIR" Value="1" ValueOperation="Increment">
+                                        <Options>
+                                            <Option Key="HASMINMAX" Value="True" />
+                                            <Option Key="VALUEMAX" Value="360" />
+                                            <Option Key="ROLLOVER" Value="True" />
+                                            <Option Key="VALUEMIN" Value="1" />
+                                        </Options>
+                                    </EventActionChangeValue>
                                 </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_TIMEOUT" Value="500" />
+                                    <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                                    <Option Key="ACCEL_MAX" Value="3" />
+                                </Options>
                             </EventDefinition>
-                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                                <Comment>HDG: Decrement [accelerated]</Comment>
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_21" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER HDG MODE" />
                                 </EventConditions>
                                 <EventActions>
-                                    <EventActionControl TargetDataDefinition="MSFS:AP_ALT_VAR_DEC100" />
+                                    <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT HEADING LOCK DIR" Value="1" ValueOperation="Decrement">
+                                        <Options>
+                                            <Option Key="HASMINMAX" Value="True" />
+                                            <Option Key="VALUEMAX" Value="360" />
+                                            <Option Key="ROLLOVER" Value="True" />
+                                            <Option Key="VALUEMIN" Value="1" />
+                                        </Options>
+                                    </EventActionChangeValue>
                                 </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                                    <Option Key="ACCEL_MAX" Value="3" />
+                                </Options>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                                <Comment>VOR OBS 1: Decrement [accelerated]</Comment>
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER CRS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV OBS:1" Value="1" ValueOperation="Decrement">
+                                        <Options>
+                                            <Option Key="HASMINMAX" Value="True" />
+                                            <Option Key="VALUEMAX" Value="360" />
+                                            <Option Key="ROLLOVER" Value="True" />
+                                            <Option Key="VALUEMIN" Value="1" />
+                                        </Options>
+                                    </EventActionChangeValue>
+                                </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_TIMEOUT" Value="500" />
+                                    <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                                    <Option Key="ACCEL_MAX" Value="3" />
+                                </Options>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+                                <Comment>IAS: Increment [accelerated]</Comment>
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER IAS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT AIRSPEED HOLD VAR" Value="1" ValueOperation="Increment">
+                                        <Options>
+                                            <Option Key="HASMINMAX" Value="True" />
+                                            <Option Key="VALUEMAX" Value="250" />
+                                            <Option Key="ROLLOVER" Value="False" />
+                                        </Options>
+                                    </EventActionChangeValue>
+                                </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_TIMEOUT" Value="500" />
+                                    <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                                    <Option Key="ACCEL_MAX" Value="3" />
+                                </Options>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                                <Comment>IAS: Decrement [accelerated]</Comment>
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:IS ENCODER IAS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT AIRSPEED HOLD VAR" Value="1" ValueOperation="Decrement">
+                                        <Options>
+                                            <Option Key="HASMINMAX" Value="True" />
+                                            <Option Key="VALUEMAX" Value="250" />
+                                            <Option Key="ROLLOVER" Value="False" />
+                                        </Options>
+                                    </EventActionChangeValue>
+                                </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_TIMEOUT" Value="500" />
+                                    <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                                    <Option Key="ACCEL_MAX" Value="3" />
+                                </Options>
                             </EventDefinition>
                         </EventDefinitions>
                     </Event>
                     <Event BoundTo="BUTTON_7">
                         <EventDefinitions>
-                            <EventDefinition Trigger="PRESSSHORT">
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="B:AS1000_AUTOPILOT_FLIGHTLEVELCHANGE_MFD">
-                                        <Parameter Value="1" />
-                                    </EventActionControl>
-                                </EventActions>
-                            </EventDefinition>
                             <EventDefinition Trigger="BUTTONLIGHT">
                                 <EventConditions>
-                                    <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:AUTOPILOT FLIGHT LEVEL CHANGE" />
+                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT AIRSPEED HOLD" />
                                 </EventConditions>
                                 <EventActions>
-                                    <EventActionLED />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="BUTTONLIGHT">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:AUTOPILOT FLIGHT LEVEL CHANGE" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionLED>
+                                    <EventActionLED AutoOff="true">
                                         <Parameter Value="1" />
                                     </EventActionLED>
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="PRESSSHORT">
+                                <EventActions>
+                                    <EventActionChangeValue TargetDataDefinition="B:AUTOPILOT_IAS" Value="0" ValueOperation="ToggleBit" />
                                 </EventActions>
                             </EventDefinition>
                         </EventDefinitions>
