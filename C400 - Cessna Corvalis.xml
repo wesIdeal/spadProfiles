@@ -1265,6 +1265,53 @@
                             </EventDefinition>
                         </EventDefinitions>
                     </Event>
+                    <Event BoundTo="BUTTON_3">
+                        <EventDefinitions>
+                            <EventDefinition Trigger="BUTTONLIGHT">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="0"
+                                                    ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH HOLD" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionLED />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Priority="1"
+                                             Trigger="PRESS">
+                                <EventActions>
+                                    <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_APPROACH_PFD"
+                                                            Value="0"
+                                                            ValueOperation="ToggleBit" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="BUTTONLIGHT">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="MSFS:AUTOPILOT APPROACH ARM" />
+                                    <EventCondition ConditionTargetValue="0"
+                                                    ConditionValueSource="MSFS:AUTOPILOT APPROACH CAPTURED" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionLED>
+                                        <Parameter Value="1" />
+                                    </EventActionLED>
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="BUTTONLIGHT">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="MSFS:AUTOPILOT APPROACH CAPTURED" />
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH HOLD" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionLED>
+                                        <Parameter Value="1" />
+                                    </EventActionLED>
+                                </EventActions>
+                            </EventDefinition>
+                        </EventDefinitions>
+                    </Event>
                     <Event BoundTo="BUTTON_6">
                         <EventDefinitions>
                             <EventDefinition Priority="2"
@@ -1340,44 +1387,28 @@
                             </EventDefinition>
                         </EventDefinitions>
                     </Event>
-                    <Event BoundTo="BUTTON_3">
+                    <Event BoundTo="BUTTON_7">
                         <EventDefinitions>
+                            <EventDefinition Trigger="PRESSSHORT">
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="B:AS1000_AUTOPILOT_FLIGHTLEVELCHANGE_MFD">
+                                        <Parameter Value="1" />
+                                    </EventActionControl>
+                                </EventActions>
+                            </EventDefinition>
                             <EventDefinition Trigger="BUTTONLIGHT">
                                 <EventConditions>
                                     <EventCondition ConditionTargetValue="0"
-                                                    ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH HOLD" />
+                                                    ConditionValueSource="MSFS:AUTOPILOT FLIGHT LEVEL CHANGE" />
                                 </EventConditions>
                                 <EventActions>
                                     <EventActionLED />
                                 </EventActions>
                             </EventDefinition>
-                            <EventDefinition Priority="1"
-                                             Trigger="PRESS">
-                                <EventActions>
-                                    <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_APPROACH_PFD"
-                                                            Value="0"
-                                                            ValueOperation="ToggleBit" />
-                                </EventActions>
-                            </EventDefinition>
                             <EventDefinition Trigger="BUTTONLIGHT">
                                 <EventConditions>
                                     <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="MSFS:AUTOPILOT APPROACH ARM" />
-                                    <EventCondition ConditionTargetValue="0"
-                                                    ConditionValueSource="MSFS:AUTOPILOT APPROACH CAPTURED" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionLED>
-                                        <Parameter Value="1" />
-                                    </EventActionLED>
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="BUTTONLIGHT">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="MSFS:AUTOPILOT APPROACH CAPTURED" />
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH HOLD" />
+                                                    ConditionValueSource="MSFS:AUTOPILOT FLIGHT LEVEL CHANGE" />
                                 </EventConditions>
                                 <EventActions>
                                     <EventActionLED>
@@ -1466,11 +1497,93 @@
                     </Event>
                     <Event BoundTo="E_AP_ENCODER">
                         <EventDefinitions>
+                            <EventDefinition Trigger="TUNER_CLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER ALT MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="MSFS:AP_ALT_VAR_INC100" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER ALT MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="MSFS:AP_ALT_VAR_DEC100" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_CLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER VS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_VS_VAR_INC" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER VS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_VS_VAR_DEC" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_CLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER HDG MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:HEADING_BUG_INC" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER HDG MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:HEADING_BUG_DEC" />
+                                </EventActions>
+                            </EventDefinition>
                             <EventDefinition EnableAcceleration="true"
                                              Trigger="TUNER_CLOCKWISE">
                                 <EventConditions>
                                     <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_17" />
+                                                    ConditionValueSource="LOCAL:IS ENCODER CRS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:VOR1_OBI_INC" />
+                                </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_MAX"
+                                            Value="10" />
+                                </Options>
+                            </EventDefinition>
+                            <EventDefinition EnableAcceleration="true"
+                                             Trigger="TUNER_COUNTERCLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER CRS MODE" />
+                                </EventConditions>
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:VOR1_OBI_DEC" />
+                                </EventActions>
+                                <Options>
+                                    <Option Key="ACCEL_MAX"
+                                            Value="10" />
+                                </Options>
+                            </EventDefinition>
+                            <EventDefinition EnableAcceleration="true"
+                                             Trigger="TUNER_CLOCKWISE">
+                                <EventConditions>
+                                    <EventCondition ConditionTargetValue="1"
+                                                    ConditionValueSource="LOCAL:IS ENCODER IAS MODE" />
                                 </EventConditions>
                                 <EventActions>
                                     <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_VERTICALSPEED_UP_PFD"
@@ -1488,7 +1601,7 @@
                                              Trigger="TUNER_COUNTERCLOCKWISE">
                                 <EventConditions>
                                     <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_17" />
+                                                    ConditionValueSource="LOCAL:IS ENCODER IAS MODE" />
                                 </EventConditions>
                                 <EventActions>
                                     <EventActionChangeValue TargetDataDefinition="B:AS1000_AUTOPILOT_VERTICALSPEED_DOWN_PFD"
@@ -1501,119 +1614,6 @@
                                     <Option Key="ACCEL_TIMEOUT"
                                             Value="250" />
                                 </Options>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_CLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_19" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:HEADING_BUG_INC" />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_19" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:HEADING_BUG_DEC" />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition EnableAcceleration="true"
-                                             Trigger="TUNER_CLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_18" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:VOR1_OBI_INC" />
-                                </EventActions>
-                                <Options>
-                                    <Option Key="ACCEL_MAX"
-                                            Value="10" />
-                                </Options>
-                            </EventDefinition>
-                            <EventDefinition EnableAcceleration="true"
-                                             Trigger="TUNER_COUNTERCLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_18" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:VOR1_OBI_DEC" />
-                                </EventActions>
-                                <Options>
-                                    <Option Key="ACCEL_MAX"
-                                            Value="10" />
-                                </Options>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_CLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_20" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_VS_VAR_INC" />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_20" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_VS_VAR_DEC" />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_CLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_21" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="MSFS:AP_ALT_VAR_INC100" />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_21" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="MSFS:AP_ALT_VAR_DEC100" />
-                                </EventActions>
-                            </EventDefinition>
-                        </EventDefinitions>
-                    </Event>
-                    <Event BoundTo="BUTTON_7">
-                        <EventDefinitions>
-                            <EventDefinition Trigger="PRESSSHORT">
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="B:AS1000_AUTOPILOT_FLIGHTLEVELCHANGE_MFD">
-                                        <Parameter Value="1" />
-                                    </EventActionControl>
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="BUTTONLIGHT">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="0"
-                                                    ConditionValueSource="MSFS:AUTOPILOT FLIGHT LEVEL CHANGE" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionLED />
-                                </EventActions>
-                            </EventDefinition>
-                            <EventDefinition Trigger="BUTTONLIGHT">
-                                <EventConditions>
-                                    <EventCondition ConditionTargetValue="1"
-                                                    ConditionValueSource="MSFS:AUTOPILOT FLIGHT LEVEL CHANGE" />
-                                </EventConditions>
-                                <EventActions>
-                                    <EventActionLED>
-                                        <Parameter Value="1" />
-                                    </EventActionLED>
-                                </EventActions>
                             </EventDefinition>
                         </EventDefinitions>
                     </Event>
@@ -2259,60 +2259,86 @@
                 <Extensions />
             </DevicePage>
             <Events />
+            <Options>
+                <Option Key="Saitek.BIP.EnableVirtualPower"
+                        Value="True" />
+                <Option Key="Saitek.BIP.Brightness"
+                        Value="50" />
+                <Option Key="Saitek.FIP.EnableVirtualPower"
+                        Value="True" />
+                <Option Key="Saitek.FIP.DefaultPagingButtons"
+                        Value="True" />
+                <Option Key="Saitek.FIP.PagingButtonsOn"
+                        Value="True" />
+                <Option Key="Saitek.RadioPanel.EnableVirtualPower"
+                        Value="True" />
+                <Option Key="Saitek.SwitchPanel.RaiseOnFirst"
+                        Value="False" />
+                <Option Key="Saitek.SwitchPanel.SwapRL"
+                        Value="True" />
+                <Option Key="Saitek.SwitchPanel.EnableVirtualPower"
+                        Value="True" />
+                <Option Key="Saitek.TrimWheel.ReverseTrim"
+                        Value="True" />
+                <Option Key="Ultimarc.PacDrive.EnableVirtualPower"
+                        Value="True" />
+                <Option Key="Ultimarc.PacLed64.EnableVirtualPower"
+                        Value="True" />
+                <Option Key="Ultimarc.PacLed64.Brightness"
+                        Value="128" />
+            </Options>
             <CustomExpressions>
-                <CustomExpressions>
-                    <CustomExpression Name="IS ENCODER ALT MODE">
-                        <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_21]</Expression>
-                    </CustomExpression>
-                    <CustomExpression Name="IS ENCODER VS MODE">
-                        <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_20]</Expression>
-                    </CustomExpression>
-                    <CustomExpression Name="IS ENCODER HDG MODE">
-                        <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_19]</Expression>
-                    </CustomExpression>
-                    <CustomExpression Name="IS ENCODER IAS MODE">
-                        <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_17]</Expression>
-                    </CustomExpression>
-                    <CustomExpression Name="IS ENCODER CRS MODE">
-                        <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_18]</Expression>
-                    </CustomExpression>
-                </CustomExpressions>
-                <Extensions />
-                <Options>
-                    <Option Key="Saitek.BIP.EnableVirtualPower"
-                            Value="True" />
-                    <Option Key="Saitek.BIP.Brightness"
-                            Value="50" />
-                    <Option Key="Saitek.FIP.EnableVirtualPower"
-                            Value="True" />
-                    <Option Key="Saitek.FIP.DefaultPagingButtons"
-                            Value="True" />
-                    <Option Key="Saitek.FIP.PagingButtonsOn"
-                            Value="True" />
-                    <Option Key="Saitek.RadioPanel.EnableVirtualPower"
-                            Value="True" />
-                    <Option Key="Saitek.SwitchPanel.RaiseOnFirst"
-                            Value="False" />
-                    <Option Key="Saitek.SwitchPanel.SwapRL"
-                            Value="True" />
-                    <Option Key="Saitek.SwitchPanel.EnableVirtualPower"
-                            Value="True" />
-                    <Option Key="Saitek.TrimWheel.ReverseTrim"
-                            Value="True" />
-                    <Option Key="Ultimarc.PacDrive.EnableVirtualPower"
-                            Value="True" />
-                    <Option Key="Ultimarc.PacLed64.EnableVirtualPower"
-                            Value="True" />
-                    <Option Key="Ultimarc.PacLed64.Brightness"
-                            Value="128" />
-                </Options>
-                <ProfileInformation ProfileID="1395597e-af31-47e4-9280-be752b42343f"
-                                    Version="0.0">
-                    <Author>captbinkbonk</Author>
-                    <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.01&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Removed stick aileron and elevator bindings from T.A320&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2024.12.26&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Verified new braking logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Imported Com1 and Nav1 Upper display settings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.01&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Merge GFC500 and G3X base and reorg profile xml&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2024.12.26&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Verified new braking logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Imported Com1 and Nav1 Upper display settings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-                    <LastChanged>2025-02-01T12:09:14.8456576-05:00</LastChanged>
-                </ProfileInformation>
+                <CustomExpression Name="IS ENCODER ALT MODE">
+                    <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_21]</Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER VS MODE">
+                    <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_20]</Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER HDG MODE">
+                    <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_19]</Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER IAS MODE">
+                    <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_17]</Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER CRS MODE">
+                    <Expression>[LOCAL:JOY_0X294B0X1901_BUTTON_18]</Expression>
+                </CustomExpression>
             </CustomExpressions>
+            <Extensions />
         </Device>
     </Devices>
+    <Options>
+        <Option Key="Saitek.BIP.EnableVirtualPower"
+                Value="True" />
+        <Option Key="Saitek.BIP.Brightness"
+                Value="50" />
+        <Option Key="Saitek.FIP.EnableVirtualPower"
+                Value="True" />
+        <Option Key="Saitek.FIP.DefaultPagingButtons"
+                Value="True" />
+        <Option Key="Saitek.FIP.PagingButtonsOn"
+                Value="True" />
+        <Option Key="Saitek.RadioPanel.EnableVirtualPower"
+                Value="True" />
+        <Option Key="Saitek.SwitchPanel.RaiseOnFirst"
+                Value="False" />
+        <Option Key="Saitek.SwitchPanel.SwapRL"
+                Value="True" />
+        <Option Key="Saitek.SwitchPanel.EnableVirtualPower"
+                Value="True" />
+        <Option Key="Saitek.TrimWheel.ReverseTrim"
+                Value="True" />
+        <Option Key="Ultimarc.PacDrive.EnableVirtualPower"
+                Value="True" />
+        <Option Key="Ultimarc.PacLed64.EnableVirtualPower"
+                Value="True" />
+        <Option Key="Ultimarc.PacLed64.Brightness"
+                Value="128" />
+    </Options>
+    <ProfileInformation ProfileID="01c65666-db3d-4e43-8ea9-5db5f7b7e9c4"
+                        Version="0.1">
+        <Author>captbinkbonk</Author>
+        <Description />
+        <LastChanged>2025-02-01T13:02:41.7800604-05:00</LastChanged>
+    </ProfileInformation>
 </Profile>
