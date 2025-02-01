@@ -56,62 +56,336 @@
               <Option Key="TUNER_MULTIPLY_3" Value="3" />
             </Options>
           </Event>
-          	<Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV1">
-		<EventDefinitions>
-		  <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
-			<Comment>NAV1: Increment Fractional Value [no carry]</Comment>
-			<EventActions>
-			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_INC" />
-			</EventActions>
-		  </EventDefinition>
-		  <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
-			<Comment>NAV1: Decrement Fractional Value [no carry]</Comment>
-			<EventActions>
-			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_DEC" />
-			</EventActions>
-		  </EventDefinition>
-		  <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
-			<Comment>NAV1: Increment Whole Value</Comment>
-			<EventActions>
-			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_INC" />
-			</EventActions>
-		  </EventDefinition>
-		  <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
-			<Comment>NAV1: Decrement Whole Value</Comment>
-			<EventActions>
-			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_DEC" />
-			</EventActions>
-		  </EventDefinition>
-		  <EventDefinition Trigger="LEFTDISPLAY">
-			<EventActions>
-			  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:1" />
-			</EventActions>
-		  </EventDefinition>
-		  <EventDefinition Trigger="RIGHTDISPLAY">
-			<Comment>Nav 1 Standby Frequency</Comment>
-			<EventActions>
-			  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" />
-			</EventActions>
-		  </EventDefinition>
-		  <EventDefinition Trigger="ACTIVATESHORT">
-			<Comment>Nav 1: Swap Active with Standby </Comment>
-			<EventActions>
-			  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_SWAP" />
-			</EventActions>
-		  </EventDefinition>
-		</EventDefinitions>
-		<Options>
-		  <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
-		  <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
-		  <Option Key="TUNER_MULTIPLY_1" Value="1" />
-		  <Option Key="TUNER_MULTIPLY_2" Value="2" />
-		  <Option Key="TUNER_MULTIPLY_3" Value="3" />
-		</Options>
-	  </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_COM1">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Com 1: Display Active</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Com 1: Display Inactive</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Increment</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Decrement</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Com 1: Swap Active with Standby</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_COM1">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Com 1: Display Active</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Com 1: Display Inactive</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Increment</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Decrement</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Com 1: Swap Active with Standby</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV1">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <Comment>NAV1: Increment Fractional Value [no carry]</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <Comment>NAV1: Decrement Fractional Value [no carry]</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>NAV1: Increment Whole Value</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>NAV1: Decrement Whole Value</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Nav 1: Active Frequency</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Nav 1 Standby Frequency</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Nav 1: Swap Active with Standby </Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_NAV1">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <Comment>NAV1: Increment Fractional Value [no carry]</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <Comment>NAV1: Decrement Fractional Value [no carry]</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>NAV1: Increment Whole Value</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>NAV1: Decrement Whole Value</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Nav 1: Active Frequency</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Nav 1 Standby Frequency</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Nav 1: Swap Active with Standby </Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_NAV2">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <Comment>Nav2: Increment Fractional Value [no carry]</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <Comment>Nav2: Decrement Fractional Value [no carry]</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>Nav2: Increment Whole Value</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>Nav2: Decrement Whole Value</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Nav 2 Active Frequency</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Nav 2 Standby Frequency</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Nav 2: Swap Active with Standby </Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_DME">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY" Priority="3">
+                <Comment>Nav 1 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:1" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY" Priority="1">
+                <Comment>Nav 2 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:2" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY" Priority="3">
+                <Comment>Nav 1 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="LessOrEqual" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="--" DisplayType="Static" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY" Priority="1">
+                <Comment>Nav 2 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="LessOrEqual" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="--" DisplayType="Static" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_DME">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY" Priority="3">
+                <Comment>Nav 1 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:1" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY" Priority="1">
+                <Comment>Nav 2 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:2" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY" Priority="3">
+                <Comment>Nav 1 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="LessOrEqual" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="--" DisplayType="Static" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY" Priority="1">
+                <Comment>Nav 2 DME</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="LessOrEqual" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="--" DisplayType="Static" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
       <Events />
+      <CustomExpressions>
+        <CustomExpression Name="COM1_INCREMENTS">
+          <Expression>If(  [MSFS:COM SPACING MODE:1],  (25/3), 25)</Expression>
+        </CustomExpression>
+      </CustomExpressions>
       <Extensions />
     </Device>
   </Devices>
@@ -130,9 +404,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="eb283963-8efa-49ce-b9b5-89feef6663eb" Version="0.3">
+  <ProfileInformation ProfileID="eb283963-8efa-49ce-b9b5-89feef6663eb" Version="0.6">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-01-31T17:59:16.2769762-05:00</LastChanged>
+    <LastChanged>2025-01-31T19:58:52.7856649-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
