@@ -56,74 +56,6 @@
               <Option Key="TUNER_MULTIPLY_3" Value="3" />
             </Options>
           </Event>
-          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_COM1">
-            <EventDefinitions>
-              <EventDefinition Trigger="LEFTDISPLAY">
-                <Comment>Com 1: Display Active</Comment>
-                <EventActions>
-                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RIGHTDISPLAY">
-                <Comment>Com 1: Display Inactive</Comment>
-                <EventActions>
-                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
-                <Comment>Com 1: Increment</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_INC" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
-                <Comment>Com 1: Decrement</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_DEC" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="ACTIVATESHORT">
-                <Comment>Com 1: Swap Active with Standby</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM1_RADIO_SWAP" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
-          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_COM1">
-            <EventDefinitions>
-              <EventDefinition Trigger="LEFTDISPLAY">
-                <Comment>Com 1: Display Active</Comment>
-                <EventActions>
-                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RIGHTDISPLAY">
-                <Comment>Com 1: Display Inactive</Comment>
-                <EventActions>
-                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
-                <Comment>Com 1: Increment</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_INC" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
-                <Comment>Com 1: Decrement</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_DEC" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="ACTIVATESHORT">
-                <Comment>Com 1: Swap Active with Standby</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM1_RADIO_SWAP" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
           <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV1">
             <EventDefinitions>
               <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
@@ -377,6 +309,190 @@
               <Option Key="TUNER_MULTIPLY_3" Value="3" />
             </Options>
           </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_COM2">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>COM 2: Display Active</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:2" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>COM 2: Display Inactive</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>COM 2: Increment</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>COM 2: Decrement</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>COM 2: Swap Active with Standby</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>Com 2: Increment Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>Com 2: Decrement Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_COM1">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Com 1: Display Active</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Com 1: Display Inactive</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Increment</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Decrement</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Com 1: Swap Active with Standby</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>Com 1: Increment Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>Com 1: Decrement Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_COM1">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>Com 1: Display Active</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>Com 1: Display Inactive</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Increment</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Com 1: Decrement</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>Com 1: Swap Active with Standby</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>Com 1: Increment Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>Com 1: Decrement Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_COM2">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <Comment>COM 2: Display Active</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:2" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <Comment>COM 2: Display Inactive</Comment>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" DisplayFormat="00.000" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>COM 2: Increment</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_FRACT_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>COM 2: Decrement</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_FRACT_DEC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <Comment>COM 2: Swap Active with Standby</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <Comment>Com 2: Increment Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_WHOLE_INC" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <Comment>Com 2: Decrement Whole</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_WHOLE_DEC" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -404,9 +520,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="eb283963-8efa-49ce-b9b5-89feef6663eb" Version="0.6">
+  <ProfileInformation ProfileID="eb283963-8efa-49ce-b9b5-89feef6663eb" Version="0.7">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-01-31T19:58:52.7856649-05:00</LastChanged>
+    <LastChanged>2025-01-31T20:06:41.8794243-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
