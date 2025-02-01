@@ -435,15 +435,6 @@
                             </EventDefinition>
                         </EventDefinitions>
                     </Event>
-                    <Event BoundTo="BUTTON_4">
-                        <EventDefinitions>
-                            <EventDefinition Trigger="PRESSSHORT">
-                                <EventActions>
-                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_BC_HOLD" />
-                                </EventActions>
-                            </EventDefinition>
-                        </EventDefinitions>
-                    </Event>
                     <Event BoundTo="BUTTON_37">
                         <EventDefinitions>
                             <EventDefinition Trigger="PRESS">
@@ -1341,6 +1332,20 @@
                                     <EventActionLED>
                                         <Parameter Value="1" />
                                     </EventActionLED>
+                                </EventActions>
+                            </EventDefinition>
+                        </EventDefinitions>
+                    </Event>
+                    <Event BoundTo="BUTTON_4">
+                        <EventDefinitions>
+                            <EventDefinition Trigger="PRESSSHORT">
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:AP_BC_HOLD" />
+                                </EventActions>
+                            </EventDefinition>
+                            <EventDefinition Trigger="PRESSLONG">
+                                <EventActions>
+                                    <EventActionControl TargetDataDefinition="SIMCONNECT:MIXTURE_SET_BEST" />
                                 </EventActions>
                             </EventDefinition>
                         </EventDefinitions>
@@ -2336,9 +2341,9 @@
                 Value="128" />
     </Options>
     <ProfileInformation ProfileID="01c65666-db3d-4e43-8ea9-5db5f7b7e9c4"
-                        Version="0.1">
+                        Version="0.2">
         <Author>captbinkbonk</Author>
         <Description />
-        <LastChanged>2025-02-01T13:02:41.7800604-05:00</LastChanged>
+        <LastChanged>2025-02-01T13:52:25.6740479-05:00</LastChanged>
     </ProfileInformation>
 </Profile>
