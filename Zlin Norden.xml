@@ -452,6 +452,25 @@
               <Option Key="NAME" Value="Strobe Lights" />
             </Options>
           </Event>
+          <Event BoundTo="BUTTON_42">
+            <EventDefinitions>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Panel Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PANEL_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Panel Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PANEL_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Panel Lights" />
+            </Options>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -1022,9 +1041,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="af5aee95-3689-44f3-b73e-c8a384090de2" Version="0.8">
+  <ProfileInformation ProfileID="af5aee95-3689-44f3-b73e-c8a384090de2" Version="0.9">
     <Author>captbinkbonk</Author>
-    <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.06&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Bindings for Nav, Strobe and Landing Lights&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Labels for Rocker Switches fixed&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Comments for Rocker Switch events added&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.02&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Combined profiles into one, GFC500 + G3X Touch.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-02-06T17:48:58.396391-05:00</LastChanged>
+    <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;Rocker Switches&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;1. Parking Brakes&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2. Nav Lights&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;3. Strobe Lights&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;4. Landing Lights	&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;5. Panel Lights		&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.06&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Bindings for Nav, Strobe and Landing Lights&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Labels for Rocker Switches fixed&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Comments for Rocker Switch events added&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Panel Light Binding implemented&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.02&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Combined profiles into one, GFC500 + G3X Touch.&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
+    <LastChanged>2025-02-06T18:02:21.9819347-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
