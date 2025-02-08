@@ -317,65 +317,6 @@
               <Option Key="NAME" Value="Beacon Lights" />
             </Options>
           </Event>
-          <Event BoundTo="RY_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventActions>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_RIGHT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="1023" />
-                      <Option Key="RANGEFROM" Value="1022" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="5" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="5" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_RIGHT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="1022" />
-                      <Option Key="RANGEFROM" Value="910" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="4" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="4" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_RIGHT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="910" />
-                      <Option Key="RANGEFROM" Value="700" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="3" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="3" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_RIGHT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="760" />
-                      <Option Key="RANGEFROM" Value="0" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="3" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="2" />
-                    </Options>
-                  </EventActionCustomAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Thrust 1" />
-            </Options>
-          </Event>
           <Event BoundTo="BUTTON_10">
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
@@ -816,77 +757,6 @@
               </EventDefinition>
             </EventDefinitions>
           </Event>
-          <Event BoundTo="RZ_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventActions>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_LEFT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="1023" />
-                      <Option Key="RANGEFROM" Value="1022" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="5" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="5" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_LEFT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="1022" />
-                      <Option Key="RANGEFROM" Value="910" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="4" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="4" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_LEFT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="910" />
-                      <Option Key="RANGEFROM" Value="700" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="3" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="3" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:A_FC_THROTTLE_LEFT_INPUT" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGETO" Value="760" />
-                      <Option Key="RANGEFROM" Value="0" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="3" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="2" />
-                    </Options>
-                  </EventActionCustomAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Thrust 1" />
-            </Options>
-          </Event>
-          <Event BoundTo="Z_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventConditions>
-                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="Floor ( (1 - ([LOCAL:JOY_0X294B0X1901_Z_AXIS] / 100)) * 3)" ConditionValueSource="LVAR:S_FC_FLAPS" ConditionType="Exp" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LVAR:S_FC_FLAPS" SourceDataDefinition="Floor ( (1 - ([LOCAL:JOY_0X294B0X1901_Z_AXIS] / 100)) * 3)" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
           <Event BoundTo="BUTTON_33">
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
@@ -956,6 +826,67 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
+          </Event>
+          <Event BoundTo="Z_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_FLAPS">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="1023" />
+                      <Option Key="MAX" Value="0" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RZ_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:THROTTLE1_AXIS_SET_EX1" Value="0">
+                    <Options>
+                      <Option Key="ALWAYSACTIVE" Value="False" />
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="RANGETO" Value="1023" />
+                      <Option Key="MAPFROM" Value="-16383" />
+                      <Option Key="MAPTO" Value="16384" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="INVERTAXIS" Value="False" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Thrust 1" />
+            </Options>
+          </Event>
+          <Event BoundTo="RY_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:THROTTLE2_AXIS_SET_EX1" Value="0">
+                    <Options>
+                      <Option Key="ALWAYSACTIVE" Value="False" />
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="RANGETO" Value="1023" />
+                      <Option Key="MAPFROM" Value="-16383" />
+                      <Option Key="MAPTO" Value="16384" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="INVERTAXIS" Value="False" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Thrust 2" />
+            </Options>
           </Event>
         </Events>
         <Extensions />
@@ -2190,8 +2121,9 @@
       <Expression>ROUND( [LOCAL:FRAMERATE], 0)</Expression>
     </CustomExpression>
   </CustomExpressions>
-  <ProfileInformation ProfileID="8da80381-1689-4d37-b482-2f65ba089329" Version="0.2">
+  <ProfileInformation ProfileID="8da80381-1689-4d37-b482-2f65ba089329" Version="0.5">
+    <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;P&gt;&lt;SPAN&gt;2024.09.06&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Fixed some ext light switch issuesl&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Thrustmaster throttle quadrant can be used if Bravo levers are in 'stored' position.&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2024.08.22&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Captain's side Autopilot Disconnect binding fixed&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2024.07.20&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;COM1 / COM2 Switch provided by last rocker switch (BUTTON_46) on Bravo&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2024-12-01T11:09:36.0831414-05:00</LastChanged>
+    <LastChanged>2025-02-07T11:36:05.3915088-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
