@@ -1336,13 +1336,13 @@
               <EventDefinition Trigger="PRESS">
                 <Comment>Condition: Off</Comment>
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_CONDITION_LEVER" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_Condition_Lever" Value="2" />
                 </EventActions>
               </EventDefinition>
               <EventDefinition Trigger="RELEASE">
                 <Comment>Condition: Low Idle</Comment>
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_CONDITION_LEVER" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_Condition_Lever" Value="1" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2312,6 +2312,24 @@
             </EventDefinitions>
           </Event>
         </Events>
+		 <CustomExpressions>
+                <CustomExpression Name="IS ENCODER ALT MODE">
+                    <Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_21]
+</Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER VS MODE">
+                    <Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_20] </Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER HDG MODE">
+                    <Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_19] </Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER IAS MODE">
+                    <Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_17] </Expression>
+                </CustomExpression>
+                <CustomExpression Name="IS ENCODER CRS MODE">
+                    <Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_18] </Expression>
+                </CustomExpression>
+            </CustomExpressions>
         <Extensions />
       </DevicePage>
       <Events />
@@ -2344,9 +2362,9 @@
       <Expression>Round( [SIMCONNECT:FUEL TOTAL QUANTITY WEIGHT] , 1)</Expression>
     </CustomExpression>
   </CustomExpressions>
-  <ProfileInformation ProfileID="b4a4ddce-65c2-488d-9ae8-f78ad5d3f94f" Version="0.33">
+  <ProfileInformation ProfileID="b4a4ddce-65c2-488d-9ae8-f78ad5d3f94f" Version="0.34">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.09&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Fixed Condition lever bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2025.01.24&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Fixed Autopilot Altitude adjustment&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2025.01.16&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Avionics on/off removed from Bravo toggle switch 6 (BUTTON_44)&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Removed local beta on/off from Bravo toggle switch 7 (BUTTON_46)&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Moved all toggle buttons to the left to eliminate the battery from the array of switches&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2025.01.11&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;DME for Nav 1 &amp;amp; 2 displays fixed&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2025.01.04&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added config vars for binding ailerons, elevator and rudder. Prefixed with 'CFG'.&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN&gt;2025.01.04&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Verified braking logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added rudder, aileron, elevator controls to spad&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-02-09T16:32:56.9039519-05:00</LastChanged>
+    <LastChanged>2025-02-09T17:29:38.8986976-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
