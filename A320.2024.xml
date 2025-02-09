@@ -645,6 +645,9 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Autopilot Master" />
+            </Options>
           </Event>
           <Event BoundTo="BUTTON_42">
             <EventDefinitions>
@@ -2121,9 +2124,9 @@
       <Expression>ROUND( [LOCAL:FRAMERATE], 0)</Expression>
     </CustomExpression>
   </CustomExpressions>
-  <ProfileInformation ProfileID="8da80381-1689-4d37-b482-2f65ba089329" Version="0.5">
+  <ProfileInformation ProfileID="8da80381-1689-4d37-b482-2f65ba089329" Version="0.7">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;P&gt;&lt;SPAN&gt;2024.09.06&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Fixed some ext light switch issuesl&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Thrustmaster throttle quadrant can be used if Bravo levers are in 'stored' position.&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2024.08.22&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Captain's side Autopilot Disconnect binding fixed&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2024.07.20&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;COM1 / COM2 Switch provided by last rocker switch (BUTTON_46) on Bravo&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-02-07T11:36:05.3915088-05:00</LastChanged>
+    <LastChanged>2025-02-07T20:24:55.6920737-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
