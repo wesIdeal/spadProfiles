@@ -1,0 +1,80 @@
+<Profile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2" xmlns="http://www.fsgs.com/SPAD">
+	<Devices>
+		<Device VendorID="0x16D0" ProductID="0x0A38" DevicePath="\\?\hid#vid_16d0&amp;pid_0a38#a&amp;33bf0f2b&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+			<DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+				<Events>
+					<Event BoundTo="X_AXIS">
+						<EventDefinitions>
+							<EventDefinition Trigger="VALUE">
+								<EventActions>
+									<EventActionRangedAxis ConfigID="LEVER_BRAKELEFT">
+										<Options>
+											<Option Key="USERAWVALUE" Value="True"/>
+											<Option Key="MIN" Value="0"/>
+											<Option Key="MAX" Value="8192"/>
+										</Options>
+									</EventActionRangedAxis>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME" Value="Left Toe Break Axis"/>
+						</Options>
+					</Event>
+					<Event BoundTo="Y_AXIS">
+						<EventDefinitions>
+							<EventDefinition Trigger="VALUE">
+								<EventActions>
+									<EventActionRangedAxis ConfigID="LEVER_BRAKERIGHT">
+										<Options>
+											<Option Key="USERAWVALUE" Value="True"/>
+											<Option Key="MIN" Value="0"/>
+											<Option Key="MAX" Value="8163"/>
+										</Options>
+									</EventActionRangedAxis>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME" Value="Right Toe Break Axis"/>
+						</Options>
+					</Event>
+					<Event BoundTo="RZ_AXIS">
+						<EventDefinitions>
+							<EventDefinition Trigger="VALUE">
+								<EventActions>
+									<EventActionRangedAxis ConfigID="LEVER_RUDDER">
+										<Options>
+											<Option Key="USERAWVALUE" Value="True"/>
+											<Option Key="MIN" Value="0"/>
+											<Option Key="MAX" Value="8192"/>
+											<Option Key="IDLE" Value="4344"/>
+										</Options>
+									</EventActionRangedAxis>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME" Value="Rudder Axis"/>
+						</Options>
+					</Event>
+				</Events>
+				<DeviceCalibration VendorID="0x16D0" ProductID="0x0A38" Version="2">
+					<Axes>
+						<AxisCalibration Name="X Axis" DisplayName="X Axis" Minimum="0" Maximum="8192" Deadzone="3" Smoothness="0" MinimumDelta="8"/>
+						<AxisCalibration Name="Y Axis" DisplayName="Y Axis" Minimum="0" Maximum="8192" Deadzone="18" Smoothness="0" MinimumDelta="8"/>
+						<AxisCalibration Name="Rz Axis" DisplayName="Rz Axis" Minimum="0" Maximum="8150" Deadzone="18" Smoothness="0" MinimumDelta="8"/>
+					</Axes>
+				</DeviceCalibration>
+				<Extensions/>
+			</DevicePage>
+			<Events/>
+			<Extensions/>
+		</Device>
+	</Devices>
+	<ProfileInformation ProfileID="4ec570a8-8931-4c52-9827-314493016075" Version="0.1">
+		<Author>captbinkbonk</Author>
+		<Description/>
+		<LastChanged>2025-02-21T08:27:53.4337792-05:00</LastChanged>
+	</ProfileInformation>
+</Profile>
