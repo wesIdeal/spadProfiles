@@ -2877,42 +2877,6 @@
 							</EventDefinition>
 						</EventDefinitions>
 					</Event>
-					<Event BoundTo="BUTTON_15">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0"
-									                        Value="2"/>
-									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1"
-									                        Value="4"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-					</Event>
-					<Event BoundTo="BUTTON_16">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0"
-									                        Value="2"/>
-									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1"
-									                        Value="0"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-					</Event>
-					<Event BoundTo="BUTTON_14">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0"
-									                        Value="3"/>
-									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1"
-									                        Value="8"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-					</Event>
 					<Event BoundTo="BUTTON_2">
 						<EventDefinitions>
 							<EventDefinition Trigger="PRESS">
@@ -3161,9 +3125,9 @@
 		        Value="128"/>
 	</Options>
 	<ProfileInformation ProfileID="8fa141fd-7c30-412d-b3b3-e5a6c1269969"
-	                    Version="0.89">
+	                    Version="0.90">
 		<Author>FSWes</Author>
 		<Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.22&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added Rudder and Toe Brake bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Removed Alternator and Battery Switch from bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Seperated Nav / Beacon to their own toggles (BUTTON_36 / BUTTON_38)&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Switched Landing and Strobe Lights (BUTTON_42 &amp;lt;-&amp;gt; BUTTON_44)&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-		<LastChanged>2025-02-22T09:58:04.2552835-05:00</LastChanged>
+		<LastChanged>2025-02-22T10:58:29.725052-05:00</LastChanged>
 	</ProfileInformation>
 </Profile>
