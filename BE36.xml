@@ -1615,7 +1615,7 @@
 							</EventDefinition>
 						</EventDefinitions>
 					</Event>
-					<Event BoundTo="BUTTON_44">
+					<Event BoundTo="BUTTON_42">
 						<EventDefinitions>
 							<EventDefinition Trigger="PRESS">
 								<Comment>Landing Lights: On</Comment>
@@ -1633,58 +1633,6 @@
 						<Options>
 							<Option Key="NAME"
 							        Value="Landing Lights"/>
-						</Options>
-					</Event>
-					<Event BoundTo="BUTTON_42">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<Comment>Landing Lights: On</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_ON"/>
-								</EventActions>
-							</EventDefinition>
-							<EventDefinition Trigger="RELEASE">
-								<Comment>Landing Lights: Off</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_OFF"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-						<Options>
-							<Option Key="NAME"
-							        Value="Strobe Lights"/>
-						</Options>
-					</Event>
-					<Event BoundTo="BUTTON_46">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS"
-							                 IsFinal="true">
-								<Comment>Fuel Switch: Right Tank</Comment>
-								<EventConditions>
-									<EventCondition ConditionComparator="Unequal"
-									                ConditionTargetValue="20"
-									                ConditionValueSource="SIMCONNECT:FUEL TANK SELECTOR:1"/>
-								</EventConditions>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:FUEL_SELECTOR_RIGHT_MAIN"/>
-								</EventActions>
-							</EventDefinition>
-							<EventDefinition Trigger="RELEASE"
-							                 IsFinal="true">
-								<Comment>Fuel Switch: Left Tank</Comment>
-								<EventConditions>
-									<EventCondition ConditionComparator="Unequal"
-									                ConditionTargetValue="19"
-									                ConditionValueSource="SIMCONNECT:FUEL TANK SELECTOR:1"/>
-								</EventConditions>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:FUEL_SELECTOR_LEFT_MAIN"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-						<Options>
-							<Option Key="NAME"
-							        Value="Fuel Tank Selector"/>
 						</Options>
 					</Event>
 					<Event BoundTo="BUTTON_8">
@@ -1995,6 +1943,26 @@
 						<Options>
 							<Option Key="NAME"
 							        Value="Beacon Lights"/>
+						</Options>
+					</Event>
+					<Event BoundTo="BUTTON_44">
+						<EventDefinitions>
+							<EventDefinition Trigger="PRESS">
+								<Comment>Strobe Lights: On</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_ON"/>
+								</EventActions>
+							</EventDefinition>
+							<EventDefinition Trigger="RELEASE">
+								<Comment>Strobe Lights: Off</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_OFF"/>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME"
+							        Value="Strobe Lights"/>
 						</Options>
 					</Event>
 				</Events>
@@ -3193,9 +3161,9 @@
 		        Value="128"/>
 	</Options>
 	<ProfileInformation ProfileID="8fa141fd-7c30-412d-b3b3-e5a6c1269969"
-	                    Version="0.88">
+	                    Version="0.89">
 		<Author>FSWes</Author>
-		<Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.22&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added Rudder and Toe Brake bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Removed Alternator and Battery Switch from bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Seperated Nav / Beacon to their own toggles (BUTTON_36 / BUTTON_38)&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-		<LastChanged>2025-02-22T09:50:07.9929528-05:00</LastChanged>
+		<Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.22&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added Rudder and Toe Brake bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Removed Alternator and Battery Switch from bindings&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Seperated Nav / Beacon to their own toggles (BUTTON_36 / BUTTON_38)&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Switched Landing and Strobe Lights (BUTTON_42 &amp;lt;-&amp;gt; BUTTON_44)&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
+		<LastChanged>2025-02-22T09:58:04.2552835-05:00</LastChanged>
 	</ProfileInformation>
 </Profile>
