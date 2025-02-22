@@ -460,9 +460,6 @@
 						</EventDefinitions>
 					</Event>
 				</Events>
-				<CustomExpressions>
-					
-				</CustomExpressions>
 				<Extensions/>
 			</DevicePage>
 			<Events/>
@@ -988,22 +985,22 @@
 							</EventDefinition>
 							<EventDefinition Trigger="RIGHTDISPLAY">
 								<EventActions>
-									<EventActionDisplayValue TargetDataDefinition="MSFS:TRANSPONDER STATE:1" DisplayFormat="0"/>
+									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:TRANSPONDER STATE:1" DisplayFormat="0"/>
 								</EventActions>
 							</EventDefinition>
 							<EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
 								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="MSFS:TRANSPONDER STATE:1" Value="4"/>
+									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER STATE:1" Value="4"/>
 								</EventActions>
 							</EventDefinition>
 							<EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
 								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="MSFS:TRANSPONDER STATE:1" Value="1"/>
+									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER STATE:1" Value="1"/>
 								</EventActions>
 							</EventDefinition>
 							<EventDefinition Trigger="ACTIVATELONG">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:TRANSPONDER STATE:1"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:TRANSPONDER STATE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="7000"/>
@@ -1064,7 +1061,7 @@
 						<EventDefinitions>
 							<EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:TRANSPONDER STATE:1"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:TRANSPONDER STATE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="1" ValueOperation="Increment"/>
@@ -1072,7 +1069,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:TRANSPONDER STATE:1"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:TRANSPONDER STATE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="1" ValueOperation="Decrement"/>
@@ -1167,7 +1164,7 @@
 						<EventDefinitions>
 							<EventDefinition Trigger="LEFTDISPLAY">
 								<EventActions>
-									<EventActionDisplayValue TargetDataDefinition="MSFS:TURB ENG FREE TURBINE TORQUE:1" DisplayFormat="0000"/>
+									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:TURB ENG FREE TURBINE TORQUE:1" DisplayFormat="0000"/>
 								</EventActions>
 							</EventDefinition>
 							<EventDefinition Trigger="RIGHTDISPLAY">
@@ -1257,7 +1254,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="LEFTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:COM SPACING MODE:1"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:COM SPACING MODE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormatting="1"/>
@@ -1265,7 +1262,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="RIGHTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:COM SPACING MODE:1"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:COM SPACING MODE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormatting="1"/>
@@ -1283,7 +1280,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="LEFTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:COM SPACING MODE:1"/>
+									<EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:COM SPACING MODE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1"/>
@@ -1291,7 +1288,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="RIGHTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:COM SPACING MODE:1"/>
+									<EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:COM SPACING MODE:1"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1"/>
@@ -1299,7 +1296,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="VALUEON">
 								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="MSFS:COM RECEIVE:1" Value="1"/>
+									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM RECEIVE:1" Value="1"/>
 									<EventActionControl TargetDataDefinition="MSFS:COM1_VOLUME_SET">
 										<Parameter Value="100"/>
 									</EventActionControl>
@@ -1310,7 +1307,7 @@
 									<EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LOCAL:RADIO_SELECTOR_UPPER"/>
 								</EventConditions>
 								<EventActions>
-									<EventActionChangeValue TargetDataDefinition="MSFS:COM RECEIVE:1" Value="0"/>
+									<EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM RECEIVE:1" Value="0"/>
 									<EventActionControl TargetDataDefinition="MSFS:COM1_VOLUME_SET"/>
 								</EventActions>
 							</EventDefinition>
@@ -1390,7 +1387,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="LEFTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:COM SPACING MODE:2"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:COM SPACING MODE:2"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:2" DisplayFormatting="1"/>
@@ -1398,7 +1395,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="RIGHTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:COM SPACING MODE:2"/>
+									<EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:COM SPACING MODE:2"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" DisplayFormatting="1"/>
@@ -1416,7 +1413,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="LEFTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:COM SPACING MODE:2"/>
+									<EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:COM SPACING MODE:2"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:2"/>
@@ -1424,7 +1421,7 @@
 							</EventDefinition>
 							<EventDefinition Trigger="RIGHTDISPLAY">
 								<EventConditions>
-									<EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:COM SPACING MODE:2"/>
+									<EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:COM SPACING MODE:2"/>
 								</EventConditions>
 								<EventActions>
 									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2"/>
@@ -1786,7 +1783,7 @@
 									<EventCondition ConditionComparator="Unequal" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:ADF SIGNAL:1"/>
 								</EventConditions>
 								<EventActions>
-									<EventActionDisplayValue TargetDataDefinition="MSFS:ADF DISTANCE" DisplayFormat="0.0"/>
+									<EventActionDisplayValue TargetDataDefinition="SIMCONNECT:ADF DISTANCE" DisplayFormat="0.0"/>
 								</EventActions>
 							</EventDefinition>
 						</EventDefinitions>
@@ -3225,13 +3222,75 @@
 			</DeviceCalibration>
 			<Extensions/>
 		</Device>
+		<Device VendorID="0x16D0" ProductID="0x0A38" DevicePath="\\?\hid#vid_16d0&amp;pid_0a38#a&amp;33bf0f2b&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+			<DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+				<Events>
+					<Event BoundTo="X_AXIS">
+						<EventDefinitions>
+							<EventDefinition Trigger="VALUE">
+								<EventActions>
+									<EventActionRangedAxis ConfigID="LEVER_BRAKELEFT">
+										<Options>
+											<Option Key="USERAWVALUE" Value="True"/>
+											<Option Key="MIN" Value="0"/>
+											<Option Key="MAX" Value="8192"/>
+										</Options>
+									</EventActionRangedAxis>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME" Value="Left Toe Break Axis"/>
+						</Options>
+					</Event>
+					<Event BoundTo="Y_AXIS">
+						<EventDefinitions>
+							<EventDefinition Trigger="VALUE">
+								<EventActions>
+									<EventActionRangedAxis ConfigID="LEVER_BRAKERIGHT">
+										<Options>
+											<Option Key="USERAWVALUE" Value="True"/>
+											<Option Key="MIN" Value="0"/>
+											<Option Key="MAX" Value="8163"/>
+										</Options>
+									</EventActionRangedAxis>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME" Value="Right Toe Break Axis"/>
+						</Options>
+					</Event>
+					<Event BoundTo="RZ_AXIS">
+						<EventDefinitions>
+							<EventDefinition Trigger="VALUE">
+								<EventActions>
+									<EventActionRangedAxis ConfigID="LEVER_RUDDER">
+										<Options>
+											<Option Key="USERAWVALUE" Value="True"/>
+											<Option Key="MIN" Value="0"/>
+											<Option Key="MAX" Value="8192"/>
+											<Option Key="IDLE" Value="4344"/>
+											<Option Key="RANGE.MAX" Value="-16380"/>
+											<Option Key="RANGE.MIN" Value="16380"/>
+										</Options>
+									</EventActionRangedAxis>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+					</Event>
+				</Events>
+				<Extensions/>
+			</DevicePage>
+			<Events/>
+			<Extensions/>
+		</Device>
 	</Devices>
 	<Options>
 		<Option Key="Saitek.BIP.EnableVirtualPower" Value="True"/>
 		<Option Key="Saitek.BIP.Brightness" Value="50"/>
 		<Option Key="Saitek.FIP.EnableVirtualPower" Value="True"/>
 		<Option Key="Saitek.FIP.DefaultPagingButtons" Value="True"/>
-		<Option Key="Saitek.FIP.PagingButtonsOn" Value="True"/>
 		<Option Key="Saitek.RadioPanel.EnableVirtualPower" Value="True"/>
 		<Option Key="Saitek.SwitchPanel.RaiseOnFirst" Value="False"/>
 		<Option Key="Saitek.SwitchPanel.SwapRL" Value="True"/>
@@ -3281,9 +3340,9 @@
 			<Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_18] </Expression>
 		</CustomExpression>
 	</CustomExpressions>
-	<ProfileInformation ProfileID="985d1b45-08e2-46d6-ad22-570213486070" Version="0.47">
+	<ProfileInformation ProfileID="985d1b45-08e2-46d6-ad22-570213486070" Version="0.49">
 		<Author>FSWes</Author>
 		<Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2024.12.26&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added new braking logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Worked on radio stack logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Set Best Mixture bound to REV button&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-		<LastChanged>2025-01-24T18:04:46.4394782-05:00</LastChanged>
+		<LastChanged>2025-02-22T07:37:46.9106429-05:00</LastChanged>
 	</ProfileInformation>
 </Profile>
