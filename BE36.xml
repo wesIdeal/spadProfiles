@@ -1022,6 +1022,46 @@
 							        Value="Parking Brakes"/>
 						</Options>
 					</Event>
+					<Event BoundTo="BUTTON_36">
+						<EventDefinitions>
+							<EventDefinition Trigger="PRESS">
+								<Comment>Nav Lights: On</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:NAV_LIGHTS_ON"/>
+								</EventActions>
+							</EventDefinition>
+							<EventDefinition Trigger="RELEASE">
+								<Comment>Nav Lights: Off</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:NAV_LIGHTS_OFF"/>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME"
+							        Value="Nav Lights"/>
+						</Options>
+					</Event>
+					<Event BoundTo="BUTTON_38">
+						<EventDefinitions>
+							<EventDefinition Trigger="PRESS">
+								<Comment>Beacon Lights: On</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_ON"/>
+								</EventActions>
+							</EventDefinition>
+							<EventDefinition Trigger="RELEASE">
+								<Comment>Beacon Lights: Off</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_OFF"/>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME"
+							        Value="Beacon Lights"/>
+						</Options>
+					</Event>
 					<Event BoundTo="BUTTON_40">
 						<EventDefinitions>
 							<EventDefinition Trigger="PRESS">
@@ -1040,6 +1080,46 @@
 						<Options>
 							<Option Key="NAME"
 							        Value="Taxi Lights"/>
+						</Options>
+					</Event>
+					<Event BoundTo="BUTTON_42">
+						<EventDefinitions>
+							<EventDefinition Trigger="PRESS">
+								<Comment>Landing Lights: On</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_ON"/>
+								</EventActions>
+							</EventDefinition>
+							<EventDefinition Trigger="RELEASE">
+								<Comment>Landing Lights: Off</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_OFF"/>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME"
+							        Value="Landing Lights"/>
+						</Options>
+					</Event>
+					<Event BoundTo="BUTTON_44">
+						<EventDefinitions>
+							<EventDefinition Trigger="PRESS">
+								<Comment>Strobe Lights: On</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_ON"/>
+								</EventActions>
+							</EventDefinition>
+							<EventDefinition Trigger="RELEASE">
+								<Comment>Strobe Lights: Off</Comment>
+								<EventActions>
+									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_OFF"/>
+								</EventActions>
+							</EventDefinition>
+						</EventDefinitions>
+						<Options>
+							<Option Key="NAME"
+							        Value="Strobe Lights"/>
 						</Options>
 					</Event>
 					<Event BoundTo="BUTTON_22">
@@ -1615,26 +1695,6 @@
 							</EventDefinition>
 						</EventDefinitions>
 					</Event>
-					<Event BoundTo="BUTTON_42">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<Comment>Landing Lights: On</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_ON"/>
-								</EventActions>
-							</EventDefinition>
-							<EventDefinition Trigger="RELEASE">
-								<Comment>Landing Lights: Off</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_OFF"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-						<Options>
-							<Option Key="NAME"
-							        Value="Landing Lights"/>
-						</Options>
-					</Event>
 					<Event BoundTo="BUTTON_8">
 						<EventDefinitions>
 							<EventDefinition Trigger="BUTTONLIGHT">
@@ -1903,66 +1963,6 @@
 						<Options>
 							<Option Key="NAME"
 							        Value="Throttle"/>
-						</Options>
-					</Event>
-					<Event BoundTo="BUTTON_36">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<Comment>Nav Lights: On</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:NAV_LIGHTS_ON"/>
-								</EventActions>
-							</EventDefinition>
-							<EventDefinition Trigger="RELEASE">
-								<Comment>Nav Lights: Off</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:NAV_LIGHTS_OFF"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-						<Options>
-							<Option Key="NAME"
-							        Value="Nav Lights"/>
-						</Options>
-					</Event>
-					<Event BoundTo="BUTTON_38">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<Comment>Beacon Lights: On</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_ON"/>
-								</EventActions>
-							</EventDefinition>
-							<EventDefinition Trigger="RELEASE">
-								<Comment>Beacon Lights: Off</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_OFF"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-						<Options>
-							<Option Key="NAME"
-							        Value="Beacon Lights"/>
-						</Options>
-					</Event>
-					<Event BoundTo="BUTTON_44">
-						<EventDefinitions>
-							<EventDefinition Trigger="PRESS">
-								<Comment>Strobe Lights: On</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_ON"/>
-								</EventActions>
-							</EventDefinition>
-							<EventDefinition Trigger="RELEASE">
-								<Comment>Strobe Lights: Off</Comment>
-								<EventActions>
-									<EventActionControl TargetDataDefinition="SIMCONNECT:STROBES_OFF"/>
-								</EventActions>
-							</EventDefinition>
-						</EventDefinitions>
-						<Options>
-							<Option Key="NAME"
-							        Value="Strobe Lights"/>
 						</Options>
 					</Event>
 				</Events>
