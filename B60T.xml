@@ -1,0 +1,2410 @@
+<Profile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2" xmlns="http://www.fsgs.com/SPAD">
+  <Devices>
+    <Device VendorID="0x294B" ProductID="0x1901" DevicePath="\\?\hid#vid_294b&amp;pid_1901#8&amp;2c406d5f&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+      <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+        <Events>
+          <Event BoundTo="BUTTON_31">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:GEAR_UP">
+                    <Parameter Value="1" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:GEAR_DOWN">
+                    <Parameter Value="1" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_47">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PARKING_BRAKES">
+                    <Parameter Value="1" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_15">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:FLAPS_INCR">
+                    <Parameter Value="1" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_16">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:FLAPS_DECR">
+                    <Parameter Value="1" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_1_1">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="1">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_masterWarningLatching" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" ConditionBinding="OR">
+                <Comment />
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LVAR:var_masterWarningLatching" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_2_1">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="1" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LVAR:var_masterCautionLatching" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_masterCautionLatching" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_2_3">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="3" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_HydraulicTestButton" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Data" TargetDataDefinition="LOCAL:HYDRAULICS_TEST" SourceDataDefinition="SIMCONNECT:CIRCUIT ON:38" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:HYDRAULICS_TEST" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LOCAL:HYDRAULICS_TEST" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="4" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:HYDRAULICS_TEST" SourceDataDefinition="[LVAR:var_HydraulicTestButton] | [LVAR:var_GlareshieldAnnunciatorTest]" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="2" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_HydraulicTestButton" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:HYDRAULICS_TEST" SourceDataDefinition="[MSFS:CIRCUIT ON:38] &amp; [LVAR:var_GlareshieldAnnunciatorTest]" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="3" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_GlareshieldAnnunciatorTest" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:HYDRAULICS_TEST" SourceDataDefinition="[MSFS:CIRCUIT ON:38]" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="2" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_GlareshieldAnnunciatorTest" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:HYDRAULICS_TEST" SourceDataDefinition="[MSFS:CIRCUIT ON:38] &amp; [LVAR:var_HydraulicTestButton]" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="1" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:HYDRAULICS_TEST" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_1_2">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="6">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:ENG ON FIRE:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_L" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="5">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="4" ConditionValueSource="LVAR:var_fireTestMode" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_L" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="6">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:ENG ON FIRE:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_R" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:ENGINE_FIRE_L" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:ENGINE_FIRE_R" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LOCAL:ENGINE_FIRE_L" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LOCAL:ENGINE_FIRE_R" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="5">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="3" ConditionValueSource="LVAR:var_fireTestMode" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_R" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="6" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:ENG ON FIRE:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_L" SourceDataDefinition="[LVAR:var_fireTestMode] == 4" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="6" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:ENG ON FIRE:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_R" SourceDataDefinition="[LVAR:var_fireTestMode] == 3" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="5" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="4" ConditionValueSource="LVAR:var_fireTestMode" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Data" TargetDataDefinition="LOCAL:ENGINE_FIRE_L" SourceDataDefinition="SIMCONNECT:ENG ON FIRE:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="4" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_GlareshieldAnnunciatorTest" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_L" SourceDataDefinition="[SIMCONNECT:ENG ON FIRE:1] == 1 ||  [LVAR:var_fireTestMode] == 4" />
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_R" SourceDataDefinition="[SIMCONNECT:ENG ON FIRE:1] == 1 ||  [LVAR:var_fireTestMode] == 4" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="3">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:50" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_L" SourceDataDefinition="[LVAR:var_GlareshieldAnnunciatorTest] == 1 || [SIMCONNECT:ENG ON FIRE:1] == 1 ||  [LVAR:var_fireTestMode] == 4" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="3">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:50" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_L" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="3">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:51" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_R" SourceDataDefinition="[LVAR:var_GlareshieldAnnunciatorTest] == 1 || [SIMCONNECT:ENG ON FIRE:2] == 1 ||  [LVAR:var_fireTestMode] == 3" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="3">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:51" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_R" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="2">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:ENGINE_FIRE_R" SourceDataDefinition="[MSFS:CIRCUIT ON:51] == 1 &amp;&amp; ([SIMCONNECT:ENG ON FIRE:2] == 1 ||  [LVAR:var_fireTestMode] == 3 || [LVAR:var_GlareshieldAnnunciatorTest] == 1 )" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="2">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_L" Value="0" />
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_R" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="5" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="3" ConditionValueSource="LVAR:var_fireTestMode" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Data" TargetDataDefinition="LOCAL:ENGINE_FIRE_R" SourceDataDefinition="SIMCONNECT:ENG ON FIRE:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="4" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_GlareshieldAnnunciatorTest" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_L" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:ENGINE_FIRE_R" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_1_4">
+            <EventDefinitions>
+              <EventDefinition Trigger="SCRIPT" Priority="6" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="4.75" ConditionValueSource="SIMCONNECT:GENERAL ENG FUEL PRESSURE:1" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_firewallPushed_L" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_L" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="5">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:5" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_L" SourceDataDefinition="[SIMCONNECT:GENERAL ENG FUEL PRESSURE:1] &lt; 4.75 ||  [LVAR:var_firewallPushed_L] == 1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="6" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="4.75" ConditionValueSource="SIMCONNECT:GENERAL ENG FUEL PRESSURE:2" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_firewallPushed_R" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_R" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="5">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:9" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_R" SourceDataDefinition="[SIMCONNECT:GENERAL ENG FUEL PRESSURE:2] &lt; 4.75 ||  [LVAR:var_firewallPushed_R] == 1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="6" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="4.75" ConditionValueSource="SIMCONNECT:GENERAL ENG FUEL PRESSURE:1" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_firewallPushed_L" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_L" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="6" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="4.75" ConditionValueSource="SIMCONNECT:GENERAL ENG FUEL PRESSURE:2" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_firewallPushed_R" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_R" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="5">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:5" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_L" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="SCRIPT" Priority="5">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:9" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_R" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="4">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_L" SourceDataDefinition="[MSFS:CIRCUIT ON:5] &amp;&amp; ([SIMCONNECT:GENERAL ENG FUEL PRESSURE:1]  &lt; 4.75 || [LVAR:var_firewallPushed_L])" />
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_R" SourceDataDefinition="[MSFS:CIRCUIT ON:9] &amp;&amp; ([SIMCONNECT:GENERAL ENG FUEL PRESSURE:2]  &lt; 4.75 || [LVAR:var_firewallPushed_R])" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" Priority="4">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_L" Value="0" />
+                  <EventActionChangeValue TargetDataDefinition="LOCAL:LOW_FUEL_PRESSURE_R" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LOCAL:LOW_FUEL_PRESSURE_L" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LOCAL:LOW_FUEL_PRESSURE_R" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" ConditionBinding="OR">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:LOW_FUEL_PRESSURE_L" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:LOW_FUEL_PRESSURE_R" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_2_5">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:BRAKE PARKING INDICATOR" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:BRAKE PARKING INDICATOR" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_1_7">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="4">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:EXTERNAL POWER ON" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="PLATE_1_6">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="2">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="1">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:GENERAL ENG STARTER:1" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="1">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:GENERAL ENG STARTER:2" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GENERAL ENG STARTER:1" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GENERAL ENG STARTER:2" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_GlareshieldAnnunciatorTest" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="1">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_GlareshieldAnnunciatorTest" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_3">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <Comment>Autopilot Appr: Active &amp; Captured</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH ACTIVE" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH CAPTURED" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH ACTIVE" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <Comment>Autopilot Appr: Active &amp; Not Captured</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH ACTIVE" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH CAPTURED" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_APR_HOLD" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_34">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Parking Brake: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PARKING_BRAKE_SET">
+                    <Parameter Value="1" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Parking Brake: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PARKING_BRAKE_SET" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Parking Brake" />
+            </Options>
+          </Event>
+          <Event BoundTo="GEAR_STATE_NOSE">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GEAR CENTER POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="OFF" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="99" ConditionValueSource="SIMCONNECT:GEAR CENTER POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="GREEN" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GEAR CENTER POSITION" />
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="99" ConditionValueSource="SIMCONNECT:GEAR CENTER POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="RED" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="GEAR_STATE_LEFT">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GEAR LEFT POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="OFF" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="99" ConditionValueSource="SIMCONNECT:GEAR LEFT POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="GREEN" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GEAR LEFT POSITION" />
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="99" ConditionValueSource="SIMCONNECT:GEAR LEFT POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="RED" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="GEAR_STATE_RIGHT">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GEAR RIGHT POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="OFF" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="99" ConditionValueSource="SIMCONNECT:GEAR RIGHT POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="GREEN" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="VALUE" IsFinal="true">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GEAR RIGHT POSITION" />
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="99" ConditionValueSource="SIMCONNECT:GEAR RIGHT POSITION" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLEDColor Color="RED" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_1">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT">
+                <Comment>AP Heading Lock Toggle</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_PANEL_HEADING_HOLD" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESSLONG">
+                <Comment>Set heading lock direction to current, rounded to whole number</Comment>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="SIMCONNECT:AUTOPILOT HEADING LOCK DIR" SourceDataDefinition="Round([SIMCONNECT:PLANE HEADING DEGREES MAGNETIC,DEGREES], 0)" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <Comment>Heading Lock: When off, then LED off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT HEADING LOCK" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <Comment>Heading Lock: When on, then LED on</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT HEADING LOCK" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_42">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Taxi Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Taxi Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Taxi Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_44">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Landing Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Landing Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Landing Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_26">
+            <EventDefinitions>
+              <EventDefinition Trigger="HELD">
+                <Comment>Prop Pitch 1: Feather</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="-25" ConditionValueSource="SIMCONNECT:GENERAL ENG PROPELLER LEVER POSITION:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PROP_PITCH1_DECR">
+                    <Parameter Value="5" />
+                  </EventActionControl>
+                </EventActions>
+                <Options>
+                  <Option Key="HELD_THRESHOLD" Value="200" />
+                  <Option Key="HELD_FREQUENCY" Value="200" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Prop Pitch 1: Min</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PROP_PITCH1_SET">
+                    <Parameter Value="1023" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Prop 1: Feather" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_27">
+            <EventDefinitions>
+              <EventDefinition Trigger="HELD">
+                <Comment>Prop Pitch 2: Feather</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="-25" ConditionValueSource="SIMCONNECT:GENERAL ENG PROPELLER LEVER POSITION:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PROP_PITCH2_DECR">
+                    <Parameter Value="5" />
+                  </EventActionControl>
+                </EventActions>
+                <Options>
+                  <Option Key="HELD_THRESHOLD" Value="200" />
+                  <Option Key="HELD_FREQUENCY" Value="200" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Prop Pitch 2: Min</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:PROP_PITCH2_SET">
+                    <Parameter Value="1023" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Prop 2: Feather" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_5">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT ALTITUDE LOCK" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT ALTITUDE LOCK" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_ALT_HOLD" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_2">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT NAV1 LOCK" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT NAV1 LOCK" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESSLONG">
+                <Comment>OBS 1: Set to GPS Direct Course</Comment>
+                <EventActions>
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="SIMCONNECT:NAV OBS:1" SourceDataDefinition="Round([SIMCONNECT:GPS WP BEARING,DEGREES], 0)" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESSSHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_NAV1_HOLD" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_7">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT" Priority="3">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:FLIGHT_LEVEL_CHANGE" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_iasHoldMode" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_iasHoldMode" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="RZ_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Prop 1</Comment>
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:PROP_PITCH1_SET" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="False" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="100" />
+                      <Option Key="INVERTAXIS" Value="True" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Prop 1" />
+            </Options>
+          </Event>
+          <Event BoundTo="RY_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Prop 2</Comment>
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:PROP_PITCH2_SET" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="False" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="100" />
+                      <Option Key="INVERTAXIS" Value="True" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Prop 2" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_36">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Battery: On</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="B:ELECTRICAL_Battery_1" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Battery: Off</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="B:ELECTRICAL_Battery_1" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Battery" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_30">
+            <Options>
+              <Option Key="NAME" Value="[N/A}" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_48">
+            <Options>
+              <Option Key="NAME" Value="[N/A}" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_29">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AUTO_THROTTLE_TO_GA" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Go Around" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_38">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_NavStrobeLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_NavStrobeLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_40">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Beacon Lights: On</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_BeaconRecogLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_BeaconRecogLights" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Beacon Lights: Off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_BeaconRecogLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_BeaconRecogLights" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Beacon Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_46">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Strobe Lights: On</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Strobe Lights: Off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Strobe Lights: Off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Strobe Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_22">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEVATOR_TRIM_SET">
+                    <Parameter Type="Exp" Value="Max(Min( [LVAR:HANDLING_ElevatorTrim] - 32.766, 16383), -16383)" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Trim: Nose Down" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_23">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEVATOR_TRIM_SET">
+                    <Parameter Type="Exp" Value="Max(Min( [LVAR:HANDLING_ElevatorTrim] + 32.766, 16383), -16383)" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_25">
+            <EventDefinitions>
+              <EventDefinition Trigger="HELD">
+                <Comment>Decrease throttle until lower limit reached</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="-15" ConditionValueSource="SIMCONNECT:GENERAL ENG THROTTLE LEVER POSITION:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:THROTTLE2_DECR" />
+                </EventActions>
+                <Options>
+                  <Option Key="HELD_FREQUENCY" Value="50" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Throttle to 0%</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:THROTTLE2_CUT" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Throttle 1: Reverse" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_24">
+            <EventDefinitions>
+              <EventDefinition Trigger="HELD">
+                <Comment>Decrease throttle until lower limit reached</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="-15" ConditionValueSource="SIMCONNECT:GENERAL ENG THROTTLE LEVER POSITION:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:THROTTLE1_DECR" />
+                </EventActions>
+                <Options>
+                  <Option Key="HELD_FREQUENCY" Value="50" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Throttle to 0%</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:THROTTLE1_CUT" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Throttle 1: Reverse" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_8">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_MASTER" />
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LVAR:var_AP_PitchKnob" SourceDataDefinition="Max(Min([SIMCONNECT:PLANE PITCH DEGREES], 16384), -16384)" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS" Priority="1">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT YAW DAMPER" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_MASTER" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS" Priority="1">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT YAW DAMPER" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AP_MASTER" />
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:YAW_DAMPER_TOGGLE" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="Y_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Throttle 1: Scaled for 2x Beta, 1.1% Deadzone</Comment>
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:THROTTLE1_SET" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="2457" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="ALWAYSACTIVE" Value="False" />
+                      <Option Key="RANGEFROM" Value="0" />
+                      <Option Key="RANGETO" Value="300" />
+                    </Options>
+                  </EventActionCustomAxis>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:THROTTLE1_SET" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="16383" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="ALWAYSACTIVE" Value="False" />
+                      <Option Key="RANGEFROM" Value="311" />
+                      <Option Key="RANGETO" Value="1023" />
+                      <Option Key="MAPFROM" Value="2458" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Throttle 1" />
+            </Options>
+          </Event>
+          <Event BoundTo="X_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Throttle 2: Scaled for 2x Beta, 1.1% Deadzone</Comment>
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:THROTTLE2_SET" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="2457" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="ALWAYSACTIVE" Value="False" />
+                      <Option Key="RANGEFROM" Value="0" />
+                      <Option Key="RANGETO" Value="300" />
+                    </Options>
+                  </EventActionCustomAxis>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:THROTTLE2_SET" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="16383" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="ALWAYSACTIVE" Value="False" />
+                      <Option Key="RANGEFROM" Value="311" />
+                      <Option Key="RANGETO" Value="1023" />
+                      <Option Key="MAPFROM" Value="2458" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Throttle 2" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_28">
+            <EventDefinitions>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Condition Lever 1: On</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever_1" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS" IsFinal="true" Priority="1">
+                <Comment>Condition Lever 1: Cutoff</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever_1" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Condition Lever 1: Cutoff/On" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_33">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Condition Lever 2: Cutoff</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever_2" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE" IsFinal="true">
+                <Comment>Condition Lever 2: On</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever_2" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Condition Lever 2: Cutoff/On" />
+            </Options>
+          </Event>
+          <Event BoundTo="E_AP_ENCODER">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>Altitude: Increment</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_21" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT ALTITUDE LOCK VAR" Value="100" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                  <Option Key="ACCEL_MULTIPLIER" Value="5" />
+                  <Option Key="ACCEL_MAX" Value="5" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Altitude: Decrement</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_21" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT ALTITUDE LOCK VAR" Value="100" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="5" />
+                  <Option Key="ACCEL_MAX" Value="5" />
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_CLOCKWISE">
+                <Comment>Pitch Control: Up</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_20" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_AP_PitchKnob" Value="0.5" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                  <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                  <Option Key="ACCEL_MAX" Value="4" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Pitch Control: Down</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_20" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_AP_PitchKnob" Value="0.5" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                  <Option Key="ACCEL_MAX" Value="4" />
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+                <Comment>Heading Lock: Increment</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_19" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT HEADING LOCK DIR" Value="1" ValueOperation="Increment">
+                    <Options>
+                      <Option Key="HASMINMAX" Value="True" />
+                      <Option Key="VALUEMAX" Value="359" />
+                      <Option Key="ROLLOVER" Value="True" />
+                    </Options>
+                  </EventActionChangeValue>
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                  <Option Key="ACCEL_MULTIPLIER" Value="5" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                  <Option Key="ACCEL_TIMEOUT" Value="250" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <Comment>Heading Lock: Decrement</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_19" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT HEADING LOCK DIR" Value="1" ValueOperation="Decrement">
+                    <Options>
+                      <Option Key="HASMINMAX" Value="True" />
+                      <Option Key="VALUEMAX" Value="359" />
+                      <Option Key="ROLLOVER" Value="True" />
+                    </Options>
+                  </EventActionChangeValue>
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="5" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                  <Option Key="ACCEL_TIMEOUT" Value="250" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_18" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV OBS:1" Value="1" ValueOperation="Increment">
+                    <Options>
+                      <Option Key="HASMINMAX" Value="True" />
+                      <Option Key="VALUEMAX" Value="359" />
+                      <Option Key="ROLLOVER" Value="True" />
+                    </Options>
+                  </EventActionChangeValue>
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="4" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_18" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV OBS:1" Value="1" ValueOperation="Decrement">
+                    <Options>
+                      <Option Key="HASMINMAX" Value="True" />
+                      <Option Key="VALUEMAX" Value="359" />
+                      <Option Key="ROLLOVER" Value="True" />
+                    </Options>
+                  </EventActionChangeValue>
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="4" />
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_CLOCKWISE" EnableAcceleration="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_17" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT AIRSPEED HOLD VAR" Value="1" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                  <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                  <Option Key="ACCEL_MAX" Value="4" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_17" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT AIRSPEED HOLD VAR" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="2" />
+                  <Option Key="ACCEL_MAX" Value="4" />
+                  <Option Key="ACCEL_THRESHOLD" Value="5" />
+                </Options>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_6">
+            <EventDefinitions>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT PITCH HOLD" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT PITCH HOLD" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT PITCH HOLD" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT PITCH HOLD" Value="1" />
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="LVAR:var_AP_PitchKnob" SourceDataDefinition="IF( true, 0, Round(Max( Min( [SIMCONNECT:PLANE PITCH DEGREES], 20), -20), 2))" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT PITCH HOLD" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:AUTOPILOT PITCH HOLD" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+        </Events>
+        <Extensions />
+      </DevicePage>
+      <Events />
+      <Options>
+        <Option Key="BUTTON_26.InputModifier" Value="Repeat" />
+        <Option Key="BUTTON_27.InputModifier" Value="Repeat" />
+      </Options>
+      <DeviceCalibration VendorID="0x294B" ProductID="0x1901" Version="2">
+        <Axes>
+          <AxisCalibration Name="Y Axis" DisplayName="Y Axis" Minimum="0" Maximum="1023" Deadzone="3" Smoothness="0" MinimumDelta="2" />
+          <AxisCalibration Name="X Axis" DisplayName="X Axis" Minimum="0" Maximum="1023" Deadzone="3" Smoothness="0" MinimumDelta="2" />
+        </Axes>
+      </DeviceCalibration>
+      <Extensions />
+    </Device>
+    <Device VendorID="0x044F" ProductID="0x0405" DevicePath="\\?\hid#vid_044f&amp;pid_0405#8&amp;e7c901f&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+      <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+        <Events>
+          <Event BoundTo="SLIDER">
+            <Options>
+              <Option Key="NAME" Value="INOP" />
+            </Options>
+          </Event>
+          <Event BoundTo="Y_AXIS">
+            <Options>
+              <Option Key="NAME" Value="INOP" />
+            </Options>
+          </Event>
+          <Event BoundTo="X_AXIS">
+            <Options>
+              <Option Key="NAME" Value="INOP" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_11">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS" Priority="1">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:bksq_TabletVisible" Value="0" ValueOperation="ToggleBit" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESS">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="2" ConditionValueSource="LVAR:bksq_TabletVisible" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:VIEW_CAMERA_SELECT_0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Tablet Visibility: Toggle" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_4">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:AUTOPILOT_DISENGAGE_TOGGLE" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="PRESSLONG">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_PilotCws_IsDown" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_PilotCws_IsDown" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:var_PilotCws_IsDown" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_PilotCws_IsDown" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="HATSWITCH_0">
+            <EventDefinitions>
+              <EventDefinition Trigger="POV_NORTH_PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEVATOR_TRIM_SET">
+                    <Parameter Type="Exp" Value="Max(Min( [LVAR:HANDLING_ElevatorTrim] - 32.766, 16383), -16383)" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="POV_SOUTH_PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEVATOR_TRIM_SET">
+                    <Parameter Type="Exp" Value="Max(Min( [LVAR:HANDLING_ElevatorTrim] + 32.766, 16383), -16383)" />
+                  </EventActionControl>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="POV_NORTH_HELD">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEVATOR_TRIM_SET">
+                    <Parameter Type="Exp" Value="Max(Min( [LVAR:HANDLING_ElevatorTrim] - 32.766, 16383), -16383)" />
+                  </EventActionControl>
+                </EventActions>
+                <Options>
+                  <Option Key="HELD_THRESHOLD" Value="500" />
+                  <Option Key="HELD_FREQUENCY" Value="500" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="POV_SOUTH_HELD">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEVATOR_TRIM_SET">
+                    <Parameter Type="Exp" Value="Max(Min( [LVAR:HANDLING_ElevatorTrim] + 32.766, 16383), -16383)" />
+                  </EventActionControl>
+                </EventActions>
+                <Options>
+                  <Option Key="HELD_THRESHOLD" Value="500" />
+                  <Option Key="HELD_FREQUENCY" Value="250" />
+                </Options>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+        </Events>
+        <Extensions />
+      </DevicePage>
+      <Events />
+      <DeviceCalibration VendorID="0x044F" ProductID="0x0405" Version="2">
+        <Axes>
+          <AxisCalibration Name="Rz Axis" DisplayName="Rz Axis" Minimum="0" Maximum="255" Deadzone="44" Smoothness="25" MinimumDelta="4" />
+        </Axes>
+      </DeviceCalibration>
+      <Extensions />
+    </Device>
+    <Device VendorID="0x06A3" ProductID="0x0D05" DevicePath="\\?\hid#vid_06a3&amp;pid_0d05#a&amp;7b35a20&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+      <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+        <Events>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV2">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="0.05" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="0.05" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATELONG">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV SOUND:2" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV1">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="0.05" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="0.05" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATELONG">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV SOUND:1" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_XPDR">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:KOHLSMAN SETTING MB" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:KOHLSMAN SETTING MB" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:KOHLSMAN SETTING MB" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionCommand>
+                    <Parameter Value="DIGITMARK" />
+                  </EventActionCommand>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATELONG">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:BAROMETRIC_STD_PRESSURE" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_NAV2">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="0.05" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="0.05" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATELONG">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV SOUND:2" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_NAV1">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="0.05" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="0.05" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV ACTIVE FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV STANDBY FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV1_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATELONG">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:NAV SOUND:1" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_ADF">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="0.1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="0.1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="10" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="10" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_XPDR">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:KOHLSMAN SETTING MB" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:KOHLSMAN SETTING MB" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:KOHLSMAN SETTING MB" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:TRANSPONDER CODE:1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionCommand>
+                    <Parameter Value="DIGITMARK" />
+                  </EventActionCommand>
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATELONG">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:BAROMETRIC_STD_PRESSURE" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_ADF">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="0.1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="0.1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="10" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" Value="10" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:ADF ACTIVE FREQUENCY:1" DisplayFormat="000.0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_DME">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:1" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DMESPEED:1" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_COM1">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="0.005" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="0.005" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_STBY_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_COM1">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="0.005" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="0.005" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:1" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:1" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM_STBY_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_COM2">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="0.005" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="0.005" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:2" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_COM2">
+            <EventDefinitions>
+              <EventDefinition Trigger="TUNER_INNER_CLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="0.005" ValueOperation="Increment" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_INNER_COUNTERCLOCKWISE" EnableAcceleration="true">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="0.005" ValueOperation="Decrement" />
+                </EventActions>
+                <Options>
+                  <Option Key="ACCEL_MULTIPLIER" Value="10" />
+                  <Option Key="ACCEL_MAX" Value="10" />
+                </Options>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_CLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="1" ValueOperation="Increment" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="TUNER_OUTER_COUNTERCLOCKWISE">
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" Value="1" ValueOperation="Decrement" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM ACTIVE FREQUENCY:2" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:COM STANDBY FREQUENCY:2" DisplayFormatting="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="ACTIVATESHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:COM2_RADIO_SWAP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+          <Event BoundTo="RADIOPANEL_LOWER_SELECTOR_DME">
+            <EventDefinitions>
+              <EventDefinition Trigger="LEFTDISPLAY">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:1" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:1" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Greater" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue TargetDataDefinition="SIMCONNECT:NAV DME:2" DisplayFormat="0.0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RIGHTDISPLAY">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:NAV DME:2" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionDisplayValue DisplayType="Static" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="TUNER_INNER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_OUTER_SENSITIVITY" Value="100" />
+              <Option Key="TUNER_MULTIPLY_1" Value="1" />
+              <Option Key="TUNER_MULTIPLY_2" Value="2" />
+              <Option Key="TUNER_MULTIPLY_3" Value="3" />
+            </Options>
+          </Event>
+        </Events>
+        <Extensions />
+      </DevicePage>
+      <Events>
+        <Event BoundTo="CONFIGURE_PANEL_STATUS">
+          <EventDefinitions>
+            <EventDefinition Trigger="VALUE">
+              <EventConditions>
+                <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AVIONICS MASTER SWITCH" />
+              </EventConditions>
+              <EventActions>
+                <EventActionCommand>
+                  <Parameter Value="SPAD_neXt.Device_PowerON" />
+                </EventActionCommand>
+              </EventActions>
+            </EventDefinition>
+            <EventDefinition Trigger="VALUE">
+              <EventConditions>
+                <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AVIONICS MASTER SWITCH" />
+              </EventConditions>
+              <EventActions>
+                <EventActionCommand>
+                  <Parameter Value="SPAD_neXt.Device_PowerOFF" />
+                </EventActionCommand>
+              </EventActions>
+            </EventDefinition>
+          </EventDefinitions>
+        </Event>
+      </Events>
+      <Extensions />
+    </Device>
+    <Device VendorID="0x16D0" ProductID="0x0A38" DevicePath="\\?\hid#vid_16d0&amp;pid_0a38#a&amp;33bf0f2b&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+      <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+        <Events>
+          <Event BoundTo="RZ_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_RUDDER">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="0" />
+                      <Option Key="MAX" Value="8192" />
+                      <Option Key="IDLE" Value="4344" />
+                      <Option Key="RANGE.MIN" Value="16380" />
+                      <Option Key="RANGE.MAX" Value="-16380" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="X_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_BRAKELEFT">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="0" />
+                      <Option Key="MAX" Value="8192" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Left Toe Break Axis" />
+            </Options>
+          </Event>
+          <Event BoundTo="Y_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_BRAKERIGHT">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="0" />
+                      <Option Key="MAX" Value="8163" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Right Toe Break Axis" />
+            </Options>
+          </Event>
+        </Events>
+        <Extensions />
+      </DevicePage>
+      <Events />
+      <Extensions />
+    </Device>
+  </Devices>
+  <Options>
+    <Option Key="Saitek.BIP.EnableVirtualPower" Value="True" />
+    <Option Key="Saitek.BIP.Brightness" Value="50" />
+    <Option Key="Saitek.FIP.EnableVirtualPower" Value="True" />
+    <Option Key="Saitek.FIP.DefaultPagingButtons" Value="True" />
+    <Option Key="Saitek.RadioPanel.EnableVirtualPower" Value="True" />
+    <Option Key="Saitek.SwitchPanel.RaiseOnFirst" Value="False" />
+    <Option Key="Saitek.SwitchPanel.SwapRL" Value="True" />
+    <Option Key="Saitek.SwitchPanel.EnableVirtualPower" Value="True" />
+    <Option Key="Saitek.TrimWheel.ReverseTrim" Value="True" />
+    <Option Key="Ultimarc.PacDrive.EnableVirtualPower" Value="True" />
+    <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
+    <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
+  </Options>
+  <ProfileInformation ProfileID="e003a5cf-c36e-4f35-a087-e770743796ce" Version="0.39">
+    <Author>captbinkbonk</Author>
+    <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;TODO:&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Apply conditionals to electronic trim operation&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
+    <LastChanged>2025-03-02T13:35:05.9843347-05:00</LastChanged>
+  </ProfileInformation>
+</Profile>
