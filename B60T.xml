@@ -723,44 +723,6 @@
               </EventDefinition>
             </EventDefinitions>
           </Event>
-          <Event BoundTo="BUTTON_42">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Taxi Lights: On</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_ON" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Taxi Lights: Off</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_OFF" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Taxi Lights" />
-            </Options>
-          </Event>
-          <Event BoundTo="BUTTON_44">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Landing Lights: On</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_ON" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Landing Lights: Off</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_OFF" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Landing Lights" />
-            </Options>
-          </Event>
           <Event BoundTo="BUTTON_26">
             <EventDefinitions>
               <EventDefinition Trigger="HELD">
@@ -948,25 +910,6 @@
               <Option Key="NAME" Value="Prop 2" />
             </Options>
           </Event>
-          <Event BoundTo="BUTTON_36">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Battery: On</Comment>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:ELECTRICAL_Battery_1" Value="1" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Battery: Off</Comment>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:ELECTRICAL_Battery_1" Value="0" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Battery" />
-            </Options>
-          </Event>
           <Event BoundTo="BUTTON_30">
             <Options>
               <Option Key="NAME" Value="[N/A}" />
@@ -987,82 +930,6 @@
             </EventDefinitions>
             <Options>
               <Option Key="NAME" Value="Go Around" />
-            </Options>
-          </Event>
-          <Event BoundTo="BUTTON_38">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <EventConditions>
-                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_NavStrobeLights" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="0" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <EventConditions>
-                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_NavStrobeLights" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="1" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
-          <Event BoundTo="BUTTON_40">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Beacon Lights: On</Comment>
-                <EventConditions>
-                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_BeaconRecogLights" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_BeaconRecogLights" Value="0" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Beacon Lights: Off</Comment>
-                <EventConditions>
-                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_BeaconRecogLights" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_BeaconRecogLights" Value="1" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Beacon Lights" />
-            </Options>
-          </Event>
-          <Event BoundTo="BUTTON_46">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Strobe Lights: On</Comment>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="2" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Strobe Lights: Off</Comment>
-                <EventConditions>
-                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_38" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="1" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Strobe Lights: Off</Comment>
-                <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_38" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="0" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Strobe Lights" />
             </Options>
           </Event>
           <Event BoundTo="BUTTON_22">
@@ -1503,6 +1370,123 @@
               </EventDefinition>
             </EventDefinitions>
           </Event>
+          <Event BoundTo="BUTTON_36">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_NavStrobeLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_NavStrobeLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Nav Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_38">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Beacon Lights: On</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_BeaconRecogLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_BeaconRecogLights" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Beacon Lights: Off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="2" ConditionValueSource="LVAR:var_BeaconRecogLights" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_BeaconRecogLights" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Beacon Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_40">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Taxi Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Taxi Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Taxi Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_42">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Landing Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Landing Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Landing Lights" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_44">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Strobe Lights: On</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="2" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Strobe Lights: Off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionComparator="Unequal" ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="1" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Strobe Lights: Off</Comment>
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_38" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:var_NavStrobeLights" Value="0" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Strobe Lights" />
+            </Options>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -1636,7 +1620,7 @@
       </DeviceCalibration>
       <Extensions />
     </Device>
-    <Device VendorID="0x06A3" ProductID="0x0D05" DevicePath="\\?\hid#vid_06a3&amp;pid_0d05#a&amp;7b35a20&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+    <Device VendorID="0x06A3" ProductID="0x0D05" DevicePath="\\?\hid#vid_06a3&amp;pid_0d05#8&amp;246ade67&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
       <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
         <Events>
           <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV2">
@@ -2385,6 +2369,13 @@
         <Extensions />
       </DevicePage>
       <Events />
+      <DeviceCalibration VendorID="0x16D0" ProductID="0x0A38" Version="2">
+        <Axes>
+          <AxisCalibration Name="Rz Axis" DisplayName="Rz Axis" Minimum="0" Maximum="8191" Deadzone="18" Smoothness="0" MinimumDelta="8" />
+          <AxisCalibration Name="Y Axis" DisplayName="Y Axis" Minimum="0" Maximum="8192" Deadzone="0" Smoothness="0" MinimumDelta="8" />
+          <AxisCalibration Name="X Axis" DisplayName="X Axis" Minimum="0" Maximum="8192" Deadzone="3" Smoothness="0" MinimumDelta="8" />
+        </Axes>
+      </DeviceCalibration>
       <Extensions />
     </Device>
   </Devices>
@@ -2402,9 +2393,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="e003a5cf-c36e-4f35-a087-e770743796ce" Version="0.39">
+  <ProfileInformation ProfileID="e003a5cf-c36e-4f35-a087-e770743796ce" Version="0.43">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;TODO:&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Apply conditionals to electronic trim operation&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-03-02T13:35:05.9843347-05:00</LastChanged>
+    <LastChanged>2025-03-13T20:54:13.5865388-04:00</LastChanged>
   </ProfileInformation>
 </Profile>
