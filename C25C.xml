@@ -197,6 +197,85 @@
               <Option Key="NAME" Value="Strobe Lights" />
             </Options>
           </Event>
+          <Event BoundTo="Y_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Spoilers Set: Custon axis event</Comment>
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:SPOILERS_SET" Value="0">
+                    <Options>
+                      <Option Key="ALWAYSACTIVE" Value="True" />
+                      <Option Key="RANGEFROM" Value="-16383" />
+                      <Option Key="RANGETO" Value="16383" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Speed Brake" />
+            </Options>
+          </Event>
+          <Event BoundTo="RZ_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Throttle 1</Comment>
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_NOREVERSE_THROTTLE">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="IDLE" Value="0" />
+                      <Option Key="MAX" Value="1023" />
+                      <Option Key="OPTION1" Value="True" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="L Throttle" />
+            </Options>
+          </Event>
+          <Event BoundTo="RY_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Throttle 2</Comment>
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_NOREVERSE_THROTTLE">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="OPTION2" Value="True" />
+                      <Option Key="IDLE" Value="0" />
+                      <Option Key="MAX" Value="1023" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="R Throttle" />
+            </Options>
+          </Event>
+          <Event BoundTo="Z_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Flaps</Comment>
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_FLAPS">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MAX" Value="0" />
+                      <Option Key="MIN" Value="1023" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Flaps" />
+            </Options>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -218,9 +297,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="b5560c39-6d50-4b61-b8b2-ef6c27e4a4e0" Version="0.6">
+  <ProfileInformation ProfileID="b5560c39-6d50-4b61-b8b2-ef6c27e4a4e0" Version="0.8">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-03-15T10:06:55.4563795-04:00</LastChanged>
+    <LastChanged>2025-03-15T10:14:13.1851953-04:00</LastChanged>
   </ProfileInformation>
 </Profile>
