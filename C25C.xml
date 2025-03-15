@@ -121,6 +121,25 @@
               <Option Key="NAME" Value="Nav Lights" />
             </Options>
           </Event>
+          <Event BoundTo="BUTTON_38">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Beacon Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Beacon Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Beacon Lights" />
+            </Options>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -142,9 +161,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="b5560c39-6d50-4b61-b8b2-ef6c27e4a4e0" Version="0.3">
+  <ProfileInformation ProfileID="b5560c39-6d50-4b61-b8b2-ef6c27e4a4e0" Version="0.4">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-03-15T09:59:55.9226396-04:00</LastChanged>
+    <LastChanged>2025-03-15T10:01:56.7416336-04:00</LastChanged>
   </ProfileInformation>
 </Profile>
