@@ -102,6 +102,25 @@
               <Option Key="NAME" Value="Parking Brakes" />
             </Options>
           </Event>
+          <Event BoundTo="BUTTON_36">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Nav Lights: On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Nav Lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:NAV_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Nav Lights" />
+            </Options>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -123,9 +142,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="b5560c39-6d50-4b61-b8b2-ef6c27e4a4e0" Version="0.2">
+  <ProfileInformation ProfileID="b5560c39-6d50-4b61-b8b2-ef6c27e4a4e0" Version="0.3">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-03-15T09:57:16.1561898-04:00</LastChanged>
+    <LastChanged>2025-03-15T09:59:55.9226396-04:00</LastChanged>
   </ProfileInformation>
 </Profile>
