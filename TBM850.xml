@@ -857,24 +857,6 @@
             </EventDefinitions>
           </Event>
           <Event BoundTo="Z_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventActions>
-                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:COWLFLAP1_SET" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGEFROM" Value="0" />
-                      <Option Key="RANGETO" Value="1023" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="0" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="16384" />
-                    </Options>
-                  </EventActionCustomAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
             <Options>
               <Option Key="NAME" Value="INOP" />
             </Options>
@@ -1305,20 +1287,6 @@
               </EventDefinition>
             </EventDefinitions>
           </Event>
-          <Event BoundTo="BUTTON_27">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever" Value="0" />
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever" Value="1" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
           <Event BoundTo="BUTTON_16">
             <EventDefinitions>
               <EventDefinition Trigger="PRESSSHORT">
@@ -1379,26 +1347,6 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
-          </Event>
-          <Event BoundTo="RY_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventActions>
-                  <EventActionCustomAxis TargetDataDefinition="LVAR:BKSQ_ConditionLever" Value="0">
-                    <Options>
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="MAPTO" Value="2" />
-                      <Option Key="MAPFROM" Value="1" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                    </Options>
-                  </EventActionCustomAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Condition Lever" />
-            </Options>
           </Event>
           <Event BoundTo="BUTTON_8">
             <EventDefinitions>
@@ -1595,6 +1543,46 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
+          </Event>
+          <Event BoundTo="RY_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <Comment>Condition Lever Low/High Idle [BKSQ]</Comment>
+                <EventActions>
+                  <EventActionCustomAxis TargetDataDefinition="LVAR:BKSQ_ConditionLever" Value="0">
+                    <Options>
+                      <Option Key="USEMAPPING" Value="True" />
+                      <Option Key="USETRIGGERVALUE" Value="True" />
+                      <Option Key="MAPTO" Value="2" />
+                      <Option Key="MAPFROM" Value="1" />
+                      <Option Key="USERAWVALUE" Value="True" />
+                    </Options>
+                  </EventActionCustomAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Condition Lever" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_27">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Condition to low idle [BKSQ]</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever" Value="0" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Condition to cut off [BKSQ]</Comment>
+                <EventActions>
+                  <EventActionChangeValue TargetDataDefinition="LVAR:BKSQ_ConditionLever" Value="1" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Condition lever cutoff / low idle" />
+            </Options>
           </Event>
         </Events>
         <Extensions />
@@ -2474,9 +2462,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="76b86cd5-203f-4ccf-803f-f42e63252bc0" Version="0.32">
+  <ProfileInformation ProfileID="76b86cd5-203f-4ccf-803f-f42e63252bc0" Version="0.33">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;P&gt;&lt;SPAN&gt;Bravo&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Annunciator Test Button not wired into Bravo annunciator lights&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-05-02T12:48:41.9521563-04:00</LastChanged>
+    <LastChanged>2025-05-17T11:27:07.6148846-04:00</LastChanged>
   </ProfileInformation>
 </Profile>
