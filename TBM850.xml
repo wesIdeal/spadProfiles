@@ -1595,9 +1595,6 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Pulse Lights" />
-            </Options>
           </Event>
         </Events>
         <Extensions />
@@ -2477,9 +2474,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="76b86cd5-203f-4ccf-803f-f42e63252bc0" Version="0.33">
+  <ProfileInformation ProfileID="76b86cd5-203f-4ccf-803f-f42e63252bc0" Version="0.32">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;P&gt;&lt;SPAN&gt;Bravo&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Annunciator Test Button not wired into Bravo annunciator lights&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-05-02T12:48:49.1161592-04:00</LastChanged>
+    <LastChanged>2025-05-02T12:48:41.9521563-04:00</LastChanged>
   </ProfileInformation>
 </Profile>
