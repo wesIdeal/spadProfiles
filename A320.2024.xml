@@ -297,6 +297,9 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Speed Brake" />
+            </Options>
           </Event>
           <Event BoundTo="BUTTON_38">
             <EventDefinitions>
@@ -844,6 +847,9 @@
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Flaps" />
+            </Options>
           </Event>
           <Event BoundTo="RZ_AXIS">
             <EventDefinitions>
@@ -904,8 +910,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -914,8 +920,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -924,8 +930,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="2" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -934,8 +940,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="4" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="4" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -944,8 +950,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="5" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="5" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -1372,7 +1378,7 @@
       <Events />
       <Extensions />
     </Device>
-    <Device VendorID="0x06A3" ProductID="0x0D05" DevicePath="\\?\hid#vid_06a3&amp;pid_0d05#a&amp;7b35a20&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+    <Device VendorID="0x06A3" ProductID="0x0D05" DevicePath="\\?\hid#vid_06a3&amp;pid_0d05#a&amp;e6a05cf&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
       <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
         <Events>
           <Event BoundTo="RADIOPANEL_UPPER_SELECTOR_NAV2">
@@ -2096,13 +2102,88 @@
       </Events>
       <Extensions />
     </Device>
+    <Device VendorID="0x16D0" ProductID="0x0A38" DevicePath="\\?\hid#vid_16d0&amp;pid_0a38#a&amp;33bf0f2b&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
+      <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
+        <Events>
+          <Event BoundTo="RZ_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_RUDDER">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="0" />
+                      <Option Key="MAX" Value="8192" />
+                      <Option Key="IDLE" Value="4344" />
+                      <Option Key="RANGE.MIN" Value="16380" />
+                      <Option Key="RANGE.MAX" Value="-16380" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="X_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_BRAKELEFT">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="0" />
+                      <Option Key="MAX" Value="8192" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Left Toe Break Axis" />
+            </Options>
+          </Event>
+          <Event BoundTo="Y_AXIS">
+            <EventDefinitions>
+              <EventDefinition Trigger="VALUE">
+                <EventActions>
+                  <EventActionRangedAxis ConfigID="LEVER_BRAKERIGHT">
+                    <Options>
+                      <Option Key="USERAWVALUE" Value="True" />
+                      <Option Key="MIN" Value="0" />
+                      <Option Key="MAX" Value="8163" />
+                    </Options>
+                  </EventActionRangedAxis>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Right Toe Break Axis" />
+            </Options>
+          </Event>
+        </Events>
+        <Extensions />
+      </DevicePage>
+      <Events />
+      <DeviceCalibration VendorID="0x16D0" ProductID="0x0A38" Version="2">
+        <Axes>
+          <AxisCalibration Name="Rz Axis" DisplayName="Rz Axis" Minimum="0" Maximum="8180" Deadzone="18" Smoothness="0" MinimumDelta="8" />
+          <AxisCalibration Name="X Axis" DisplayName="X Axis" Minimum="0" Maximum="8192" Deadzone="3" Smoothness="0" MinimumDelta="8" />
+        </Axes>
+      </DeviceCalibration>
+      <Extensions />
+    </Device>
+    <Device VendorID="MIDI" ProductID="USB_Oxygen_8_v2" DevicePath="MIDI/USB_Oxygen_8_v2/0" DeviceIndex="0" Version="3">
+      <Events />
+      <Options>
+        <Option Key="LongPressTriggerTime" Value="1000" />
+      </Options>
+      <Extensions />
+    </Device>
   </Devices>
   <Options>
     <Option Key="Saitek.BIP.EnableVirtualPower" Value="True" />
     <Option Key="Saitek.BIP.Brightness" Value="50" />
     <Option Key="Saitek.FIP.EnableVirtualPower" Value="True" />
     <Option Key="Saitek.FIP.DefaultPagingButtons" Value="True" />
-    <Option Key="Saitek.FIP.PagingButtonsOn" Value="True" />
     <Option Key="Saitek.RadioPanel.EnableVirtualPower" Value="True" />
     <Option Key="Saitek.SwitchPanel.RaiseOnFirst" Value="False" />
     <Option Key="Saitek.SwitchPanel.SwapRL" Value="True" />
@@ -2124,9 +2205,9 @@
       <Expression>ROUND( [LOCAL:FRAMERATE], 0)</Expression>
     </CustomExpression>
   </CustomExpressions>
-  <ProfileInformation ProfileID="8da80381-1689-4d37-b482-2f65ba089329" Version="0.7">
+  <ProfileInformation ProfileID="8da80381-1689-4d37-b482-2f65ba089329" Version="0.10">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;P&gt;&lt;SPAN&gt;2024.09.06&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Fixed some ext light switch issuesl&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Thrustmaster throttle quadrant can be used if Bravo levers are in 'stored' position.&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2024.08.22&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Captain's side Autopilot Disconnect binding fixed&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2024.07.20&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;COM1 / COM2 Switch provided by last rocker switch (BUTTON_46) on Bravo&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-02-07T20:24:55.6920737-05:00</LastChanged>
+    <LastChanged>2025-04-13T09:28:20.5120312-04:00</LastChanged>
   </ProfileInformation>
 </Profile>

@@ -109,7 +109,7 @@
               <EventDefinition Trigger="VALUE">
                 <Comment>Condition Lever 1</Comment>
                 <EventActions>
-                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="B:FUEL_1_CONDITION_LEVER" SourceDataDefinition="If( [LOCAL:JOY_0X294B0X1901_RX_AXIS] &gt; 50, 0, 1)" />
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="B:FUEL_1_Condition_Lever" SourceDataDefinition="If( [LOCAL:JOY_0X294B0X1901_RX_AXIS] &gt; 50, 0, 1)" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -122,7 +122,7 @@
               <EventDefinition Trigger="VALUE">
                 <Comment>Condition Lever 2</Comment>
                 <EventActions>
-                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="B:FUEL_2_CONDITION_LEVER" SourceDataDefinition="If( [LOCAL:JOY_0X294B0X1901_Z_AXIS] &gt; 50, 0, 1)" />
+                  <EventActionChangeValue SourceType="Exp" TargetDataDefinition="B:FUEL_2_Condition_Lever" SourceDataDefinition="If( [LOCAL:JOY_0X294B0X1901_Z_AXIS] &gt; 50, 0, 1)" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -173,13 +173,13 @@
               <EventDefinition Trigger="PRESS">
                 <Comment>Condition 1: Fuel Cutoff</Comment>
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_CONDITION_LEVER" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_Condition_Lever" Value="2" />
                 </EventActions>
               </EventDefinition>
               <EventDefinition Trigger="RELEASE">
                 <Comment>Condition Lever 1: Low Idle</Comment>
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_CONDITION_LEVER" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="B:FUEL_1_Condition_Lever" Value="1" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -192,13 +192,13 @@
               <EventDefinition Trigger="PRESS">
                 <Comment>Condition 2: Fuel Cutoff</Comment>
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:FUEL_2_CONDITION_LEVER" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="B:FUEL_2_Condition_Lever" Value="2" />
                 </EventActions>
               </EventDefinition>
               <EventDefinition Trigger="RELEASE">
                 <Comment>Condition Lever 2: Low Idle</Comment>
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="B:FUEL_2_CONDITION_LEVER" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="B:FUEL_2_Condition_Lever" Value="1" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -700,10 +700,89 @@
               <Option Key="NAME" Value="Throttle 1" />
             </Options>
           </Event>
+          <Event BoundTo="BUTTON_23">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEV_TRIM_UP" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_22">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:ELEV_TRIM_DN" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_7">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="B:AUTOPILOT_FLC_BUTTON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT FLIGHT LEVEL CHANGE" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT FLIGHT LEVEL CHANGE" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_6">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESSSHORT">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="B:AUTOPILOT_VS_MODE" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT VERTICAL HOLD" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="BUTTONLIGHT">
+                <EventConditions>
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT VERTICAL HOLD" />
+                </EventConditions>
+                <EventActions>
+                  <EventActionLED>
+                    <Parameter Value="1" />
+                  </EventActionLED>
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
       <Events />
+      <Extensions />
+    </Device>
+    <Device VendorID="MIDI" ProductID="USB_Oxygen_8_v2" DevicePath="MIDI/USB_Oxygen_8_v2/0" DeviceIndex="0" Version="3">
+      <Events />
+      <Options>
+        <Option Key="LongPressTriggerTime" Value="1000" />
+      </Options>
       <Extensions />
     </Device>
   </Devices>
@@ -739,9 +818,9 @@
       <Expression> [LOCAL:JOY_0X294B0X1901_BUTTON_18] </Expression>
     </CustomExpression>
   </CustomExpressions>
-  <ProfileInformation ProfileID="4aa0949e-38cc-4bb3-842e-86eec9946171" Version="0.14">
+  <ProfileInformation ProfileID="4aa0949e-38cc-4bb3-842e-86eec9946171" Version="0.20">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-03-10T18:23:22.2189961-04:00</LastChanged>
+    <LastChanged>2025-04-10T08:25:53.9746414-04:00</LastChanged>
   </ProfileInformation>
 </Profile>

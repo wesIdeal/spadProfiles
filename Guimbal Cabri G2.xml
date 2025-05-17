@@ -57,43 +57,6 @@
       <Events />
       <Extensions />
     </Device>
-    <Device VendorID="0x294B" ProductID="0x1901" DevicePath="\\?\hid#vid_294b&amp;pid_1901#8&amp;2c406d5f&amp;0&amp;0000#{4d1e55b2-f16f-11cf-88cb-001111000030}" Serial="" DeviceIndex="0" Version="3">
-      <DevicePage ID="72c73483-060e-4a22-94be-a6d0c6e32179" IsDefaultPage="true" Name="Default">
-        <Events>
-          <Event BoundTo="Y_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventActions>
-                  <EventActionCustomAxis TargetDataDefinition="LOCAL:ROTOR COLLECTIVE AXIS" Value="0">
-                    <Options>
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="MAPTO" Value="1" />
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGEFROM" Value="0" />
-                      <Option Key="RANGETO" Value="1023" />
-                      <Option Key="USERAWVALUE" Value="True" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionChangeValue SourceType="Data" TargetDataDefinition="B:ROTOR_COLLECTIVE" SourceDataDefinition="LOCAL:ROTOR COLLECTIVE AXIS">
-                    <Options>
-                      <Option Key="HASMINMAX" Value="True" />
-                      <Option Key="VALUEMAX" Value="16384" />
-                    </Options>
-                  </EventActionChangeValue>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Rotor Collective" />
-            </Options>
-          </Event>
-        </Events>
-        <Extensions />
-      </DevicePage>
-      <Events />
-      <Extensions />
-    </Device>
   </Devices>
   <Options>
     <Option Key="Saitek.BIP.EnableVirtualPower" Value="True" />
@@ -109,9 +72,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="a1045437-6266-40a2-877f-aeabf62b6480" Version="0.2">
+  <ProfileInformation ProfileID="a1045437-6266-40a2-877f-aeabf62b6480" Version="0.3">
     <Author>captbinkbonk</Author>
     <Description />
-    <LastChanged>2025-02-11T20:37:27.6071612-05:00</LastChanged>
+    <LastChanged>2025-02-16T15:42:27.5237978-05:00</LastChanged>
   </ProfileInformation>
 </Profile>

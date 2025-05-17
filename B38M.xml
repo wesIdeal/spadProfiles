@@ -1613,63 +1613,6 @@
               <Option Key="NAME" Value="Dome Lights: Off | Dim" />
             </Options>
           </Event>
-          <Event BoundTo="BUTTON_40">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Taxi Lights: On</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_TAXI">
-                    <Parameter Value="1" />
-                  </EventActionControl>
-                  <EventActionDelay Delay="100" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_L_TURNOFF">
-                    <Parameter Value="1" />
-                  </EventActionControl>
-                  <EventActionDelay Delay="50" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_R_TURNOFF">
-                    <Parameter Value="1" />
-                  </EventActionControl>
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Taxi Lights: Off</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_TAXI" />
-                  <EventActionDelay Delay="100" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_L_TURNOFF" />
-                  <EventActionDelay Delay="50" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_R_TURNOFF" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Taxi Lights" />
-            </Options>
-          </Event>
-          <Event BoundTo="BUTTON_38">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <Comment>Anti-Collision (Beacon): On</Comment>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_ANT_COL">
-                    <Parameter Value="1" />
-                  </EventActionControl>
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <Comment>Anti-Collision (Beacon): Off</Comment>
-                <EventConditions>
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="LOCAL:JOY_0X294B0X1901_BUTTON_42" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_ANT_COL" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Anti-Collision (Beacon)" />
-            </Options>
-          </Event>
           <Event BoundTo="BUTTON_44">
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
@@ -1700,40 +1643,6 @@
             </EventDefinitions>
             <Options>
               <Option Key="NAME" Value="Anti-Collision: Strobe Lights" />
-            </Options>
-          </Event>
-          <Event BoundTo="BUTTON_42">
-            <EventDefinitions>
-              <EventDefinition Trigger="PRESS">
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_L_FIXED">
-                    <Parameter Value="2" />
-                  </EventActionControl>
-                  <EventActionDelay Delay="67" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_R_FIXED">
-                    <Parameter Value="2" />
-                  </EventActionControl>
-                  <EventActionDelay Delay="100" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_L_RETRACT">
-                    <Parameter Value="2" />
-                  </EventActionControl>
-                  <EventActionDelay Delay="50" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_R_RETRACT">
-                    <Parameter Value="2" />
-                  </EventActionControl>
-                </EventActions>
-              </EventDefinition>
-              <EventDefinition Trigger="RELEASE">
-                <EventActions>
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_L_FIXED" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_R_FIXED" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_L_RETRACT" />
-                  <EventActionControl TargetDataDefinition="PMDGNG3:EVT_OH_LIGHTS_R_RETRACT" />
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-            <Options>
-              <Option Key="NAME" Value="Landing Lights" />
             </Options>
           </Event>
           <Event BoundTo="BUTTON_34">
@@ -2164,6 +2073,55 @@
               </EventDefinition>
             </EventDefinitions>
           </Event>
+          <Event BoundTo="BUTTON_38">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Anti-Collision (Beacon): On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Anti-Collision (Beacon): Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:BEACON_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+            <Options>
+              <Option Key="NAME" Value="Anti-Collision (Beacon)" />
+            </Options>
+          </Event>
+          <Event BoundTo="BUTTON_40">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <Comment>Taxi lights On</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <Comment>Taxi lights: Off</Comment>
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:TAXI_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
+          <Event BoundTo="BUTTON_42">
+            <EventDefinitions>
+              <EventDefinition Trigger="PRESS">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_ON" />
+                </EventActions>
+              </EventDefinition>
+              <EventDefinition Trigger="RELEASE">
+                <EventActions>
+                  <EventActionControl TargetDataDefinition="SIMCONNECT:LANDING_LIGHTS_OFF" />
+                </EventActions>
+              </EventDefinition>
+            </EventDefinitions>
+          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -2328,9 +2286,9 @@
     <Option Key="Ultimarc.PacLed64.EnableVirtualPower" Value="True" />
     <Option Key="Ultimarc.PacLed64.Brightness" Value="128" />
   </Options>
-  <ProfileInformation ProfileID="571ef550-f85a-4647-82dc-dae3f4eb7a64" Version="0.15">
+  <ProfileInformation ProfileID="571ef550-f85a-4647-82dc-dae3f4eb7a64" Version="0.18">
     <Author>captbinkbonk</Author>
     <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P STYLE="text-align:Justify;"&gt;&lt;SPAN&gt;2024.10.05 &lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P STYLE="text-align:Justify;"&gt;&lt;SPAN&gt;Dome light switch defaults to Dim [0] instead of Bright [2]&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P STYLE="text-align:Justify;"&gt;&lt;SPAN&gt;Dome light now operated by Rocker Switch 7&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P STYLE="text-align:Justify;"&gt;&lt;SPAN&gt;Changed Rocker Switches to control lights&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-03-28T08:22:54.1327244-04:00</LastChanged>
+    <LastChanged>2025-03-30T17:42:39.1494724-04:00</LastChanged>
   </ProfileInformation>
 </Profile>

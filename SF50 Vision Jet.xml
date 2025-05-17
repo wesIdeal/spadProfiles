@@ -594,7 +594,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" ConditionBinding="OR">
                 <EventConditions>
                   <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:PROP DEICE SWITCH:1" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:PITOT HEAT SWITCH:1" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:PITOT HEAT SWITCH:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -605,7 +605,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" Priority="1">
                 <EventConditions>
                   <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:PROP DEICE SWITCH:1" />
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:PITOT HEAT SWITCH:1" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:PITOT HEAT SWITCH:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -639,7 +639,7 @@
             <EventDefinitions>
               <EventDefinition Trigger="BUTTONLIGHT" Priority="2">
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:CIRCUIT ON:4" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:4" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -647,7 +647,7 @@
               </EventDefinition>
               <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" Priority="1">
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:4" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:4" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -662,7 +662,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" Priority="1">
                 <EventConditions>
                   <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:ENG ON FIRE:1" />
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:GENERAL ENG FIRE DETECTED:1" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GENERAL ENG FIRE DETECTED:1" />
                   <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:APU ON FIRE DETECTED" />
                 </EventConditions>
                 <EventActions>
@@ -672,7 +672,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true" ConditionBinding="OR">
                 <EventConditions>
                   <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:ENG ON FIRE:1" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:GENERAL ENG FIRE DETECTED:1" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:GENERAL ENG FIRE DETECTED:1" />
                   <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:APU ON FIRE DETECTED" />
                 </EventConditions>
                 <EventActions>
@@ -688,7 +688,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" Priority="1">
                 <Comment>Reflects Ext Power status of 'OFF'</Comment>
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:EXTERNAL POWER ON" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:EXTERNAL POWER ON" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -697,7 +697,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" IsFinal="true">
                 <Comment>Reflects Ext Power status of 'ON'</Comment>
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:EXTERNAL POWER ON" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:EXTERNAL POWER ON" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -711,7 +711,7 @@
             <EventDefinitions>
               <EventDefinition Trigger="BUTTONLIGHT" Priority="1">
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:GENERAL ENG STARTER ACTIVE:1" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:GENERAL ENG STARTER ACTIVE:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -719,7 +719,7 @@
               </EventDefinition>
               <EventDefinition Trigger="BUTTONLIGHT" ConditionBinding="OR">
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:GENERAL ENG STARTER ACTIVE:1" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:GENERAL ENG STARTER ACTIVE:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -875,7 +875,7 @@
                 <Comment>Vacuum Ann: On</Comment>
                 <EventConditions>
                   <EventCondition ConditionComparator="Less" ConditionTargetValue="3" ConditionValueSource="SIMCONNECT:SUCTION PRESSURE" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:20" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:20" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -887,7 +887,7 @@
                 <Comment>Vacuum Ann: Off</Comment>
                 <EventConditions>
                   <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="3" ConditionValueSource="SIMCONNECT:SUCTION PRESSURE" />
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:CIRCUIT ON:20" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:CIRCUIT ON:20" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -900,7 +900,7 @@
                 <Comment>Vacuum Ann: On</Comment>
                 <EventConditions>
                   <EventCondition ConditionTargetValue="1" ConditionValueSource="LVAR:VAR_ANNUNCIATORLIGHTTESTBUTTON" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:20" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:20" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -982,7 +982,7 @@
               <EventDefinition Trigger="BUTTONLIGHT">
                 <Comment>From ranges found in manual.</Comment>
                 <EventConditions>
-                  <EventCondition ConditionComparator="Less" ConditionTargetValue="25.1" ConditionValueSource="MSFS:ELECTRICAL MAIN BUS VOLTAGE:1" />
+                  <EventCondition ConditionComparator="Less" ConditionTargetValue="25.1" ConditionValueSource="SIMCONNECT:ELECTRICAL MAIN BUS VOLTAGE:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -993,7 +993,7 @@
               <EventDefinition Trigger="BUTTONLIGHT">
                 <Comment>From ranges found in manual.</Comment>
                 <EventConditions>
-                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="25.1" ConditionValueSource="MSFS:ELECTRICAL MAIN BUS VOLTAGE:1" />
+                  <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="25.1" ConditionValueSource="SIMCONNECT:ELECTRICAL MAIN BUS VOLTAGE:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -1123,7 +1123,7 @@
               <EventDefinition Trigger="BUTTONLIGHT" Priority="1">
                 <EventConditions>
                   <EventCondition ConditionComparator="LessOrEqual" ConditionTargetValue="30" ConditionValueSource="SIMCONNECT:ENG OIL PRESSURE:1,PSI" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:15" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:15" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -1136,7 +1136,7 @@
                 <EventConditions>
                   <EventCondition ConditionComparator="Less" ConditionTargetValue="38" ConditionValueSource="SIMCONNECT:ENG OIL PRESSURE:1,PSI" />
                   <EventCondition ConditionComparator="Greater" ConditionTargetValue="30" ConditionValueSource="SIMCONNECT:ENG OIL PRESSURE:1,PSI" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:15" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:15" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -1158,7 +1158,7 @@
                 <EventConditions>
                   <EventCondition ConditionComparator="GreaterOrEqual" ConditionTargetValue="38" ConditionValueSource="SIMCONNECT:ENG OIL PRESSURE:1,PSI" />
                   <EventCondition ConditionComparator="Less" ConditionTargetValue="100" ConditionValueSource="SIMCONNECT:ENG OIL PRESSURE:1,PSI" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:15" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:15" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED />
@@ -1222,8 +1222,8 @@
               <EventDefinition Trigger="BUTTONLIGHT">
                 <Comment>Flash when AP Approach Mode is armed but not captured.</Comment>
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:AUTOPILOT APPROACH ARM" />
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:AUTOPILOT APPROACH CAPTURED" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH ARM" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH CAPTURED" />
                 </EventConditions>
                 <EventActions>
                   <EventActionLED>
@@ -1234,7 +1234,7 @@
               <EventDefinition Trigger="BUTTONLIGHT">
                 <Comment>Turn LED on when AP Approach Mode is Active and approach is captured.</Comment>
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:AUTOPILOT APPROACH ACTIVE" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH ACTIVE" />
                   <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT APPROACH HOLD" />
                 </EventConditions>
                 <EventActions>
@@ -1297,7 +1297,7 @@
               <EventDefinition Trigger="PRESS" Priority="4">
                 <Comment>Autopilot: Toggle</Comment>
                 <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:CIRCUIT ON:61" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:CIRCUIT ON:61" />
                   <EventCondition ConditionTargetValue="0" ConditionValueSource="LVAR:var_AutopilotTest" />
                 </EventConditions>
                 <EventActions>
@@ -2250,8 +2250,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="1" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2260,8 +2260,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2270,8 +2270,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="4" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="4" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2280,8 +2280,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="0" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2290,8 +2290,8 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:0" Value="3" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA VIEW TYPE AND INDEX:1" Value="8" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:0" Value="3" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA VIEW TYPE AND INDEX:1" Value="8" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2300,15 +2300,15 @@
             <EventDefinitions>
               <EventDefinition Trigger="PRESS">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA STATE" Value="2" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:CAMERA REQUEST ACTION" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA STATE" Value="2" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:CAMERA REQUEST ACTION" Value="1" />
                   <EventActionDelay Delay="100" />
-                  <EventActionChangeValue TargetDataDefinition="MSFS:COCKPIT CAMERA HEIGHT" Value="40" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COCKPIT CAMERA HEIGHT" Value="40" />
                 </EventActions>
               </EventDefinition>
               <EventDefinition Trigger="PRESSLONG">
                 <EventActions>
-                  <EventActionChangeValue TargetDataDefinition="MSFS:COCKPIT CAMERA UPPER POSITION" Value="1" />
+                  <EventActionChangeValue TargetDataDefinition="SIMCONNECT:COCKPIT CAMERA UPPER POSITION" Value="1" />
                 </EventActions>
               </EventDefinition>
             </EventDefinitions>
@@ -2328,7 +2328,7 @@
                 <Comment>Autopilot / Flight Director: On when off</Comment>
                 <EventConditions>
                   <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
-                  <EventCondition ConditionTargetValue="0" ConditionValueSource="MSFS:AUTOPILOT FLIGHT DIRECTOR ACTIVE:1" />
+                  <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT FLIGHT DIRECTOR ACTIVE:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionControl TargetDataDefinition="SIMCONNECT:TOGGLE_FLIGHT_DIRECTOR" />
@@ -2339,7 +2339,7 @@
                 <Comment>Autopilot: On when off</Comment>
                 <EventConditions>
                   <EventCondition ConditionTargetValue="0" ConditionValueSource="SIMCONNECT:AUTOPILOT MASTER" />
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="MSFS:AUTOPILOT FLIGHT DIRECTOR ACTIVE:1" />
+                  <EventCondition ConditionTargetValue="1" ConditionValueSource="SIMCONNECT:AUTOPILOT FLIGHT DIRECTOR ACTIVE:1" />
                 </EventConditions>
                 <EventActions>
                   <EventActionControl TargetDataDefinition="SIMCONNECT:AUTOPILOT_ON" />
@@ -2473,76 +2473,6 @@
               <Option Key="NAME" Value="Left Brakes" />
             </Options>
           </Event>
-          <Event BoundTo="Y_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE" Priority="1">
-                <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="PROFILE:CFG BIND ELEVATORS" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionRangedAxis ConfigID="LEVER_ELEVATOR">
-                    <Options>
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MIN" Value="0" />
-                      <Option Key="IDLE" Value="8191" />
-                      <Option Key="MAX" Value="16383" />
-                    </Options>
-                  </EventActionRangedAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
-          <Event BoundTo="RZ_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="PROFILE:CFG BIND RUDDER" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:AXIS_RUDDER_SET" Value="0">
-                    <Options>
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGEFROM" Value="64" />
-                      <Option Key="RANGETO" Value="16383" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="MAPTO" Value="16383" />
-                      <Option Key="USERAWVALUE" Value="False" />
-                    </Options>
-                  </EventActionCustomAxis>
-                  <EventActionCustomAxis TargetDataDefinition="SIMCONNECT:AXIS_RUDDER_SET" Value="0">
-                    <Options>
-                      <Option Key="ALWAYSACTIVE" Value="False" />
-                      <Option Key="RANGEFROM" Value="-16383" />
-                      <Option Key="RANGETO" Value="-64" />
-                      <Option Key="USEMAPPING" Value="True" />
-                      <Option Key="USETRIGGERVALUE" Value="True" />
-                      <Option Key="MAPFROM" Value="-16383" />
-                    </Options>
-                  </EventActionCustomAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
-          <Event BoundTo="X_AXIS">
-            <EventDefinitions>
-              <EventDefinition Trigger="VALUE">
-                <EventConditions>
-                  <EventCondition ConditionTargetValue="1" ConditionValueSource="PROFILE:CFG BIND AILERONS" />
-                </EventConditions>
-                <EventActions>
-                  <EventActionRangedAxis ConfigID="LEVER_AILERONS">
-                    <Options>
-                      <Option Key="USERAWVALUE" Value="True" />
-                      <Option Key="MAX" Value="16383" />
-                      <Option Key="IDLE" Value="8255" />
-                      <Option Key="MIN" Value="0" />
-                    </Options>
-                  </EventActionRangedAxis>
-                </EventActions>
-              </EventDefinition>
-            </EventDefinitions>
-          </Event>
         </Events>
         <Extensions />
       </DevicePage>
@@ -2566,7 +2496,6 @@
     <Option Key="Saitek.BIP.Brightness" Value="50" />
     <Option Key="Saitek.FIP.EnableVirtualPower" Value="True" />
     <Option Key="Saitek.FIP.DefaultPagingButtons" Value="True" />
-    <Option Key="Saitek.FIP.PagingButtonsOn" Value="True" />
     <Option Key="Saitek.RadioPanel.EnableVirtualPower" Value="True" />
     <Option Key="Saitek.SwitchPanel.RaiseOnFirst" Value="False" />
     <Option Key="Saitek.SwitchPanel.SwapRL" Value="True" />
@@ -2584,9 +2513,9 @@
       <Expression>Round( [SIMCONNECT:FUEL TANK LEFT MAIN QUANTITY]  +  [SIMCONNECT:FUEL TANK RIGHT MAIN QUANTITY] ,0)</Expression>
     </CustomExpression>
   </CustomExpressions>
-  <ProfileInformation ProfileID="0f673783-2459-4fa7-8275-40775804168b" Version="0.12">
+  <ProfileInformation ProfileID="0f673783-2459-4fa7-8275-40775804168b" Version="0.13">
     <Author>captbinkbonk</Author>
-    <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2024.12.26&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Verified brakiing logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added Fuel Total Gal and Fuel Total Lbs as local vars&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
-    <LastChanged>2025-01-24T11:04:35.9208994-05:00</LastChanged>
+    <Description>&lt;HTML&gt;&lt;BODY&gt;&lt;DIV STYLE="text-align:Left;font-family:Segoe UI;font-style:normal;font-weight:normal;font-size:13;color:#D1D1D1;"&gt;&lt;DIV&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;2025.02.15&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Removed aileron/elev/rudder binding&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;P&gt;&lt;SPAN&gt;2024.12.26&lt;/SPAN&gt;&lt;/P&gt;&lt;UL&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Verified brakiing logic&lt;/SPAN&gt;&lt;/P&gt;&lt;/LI&gt;&lt;LI&gt;&lt;P&gt;&lt;SPAN&gt;Added Fuel Total Gal and Fuel Total Lbs as local vars&lt;/SPAN&gt;&lt;/P&gt;&lt;P&gt;&lt;SPAN /&gt;&lt;/P&gt;&lt;/LI&gt;&lt;/UL&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/DIV&gt;&lt;/BODY&gt;&lt;/HTML&gt;</Description>
+    <LastChanged>2025-02-15T11:28:47.4514998-05:00</LastChanged>
   </ProfileInformation>
 </Profile>
